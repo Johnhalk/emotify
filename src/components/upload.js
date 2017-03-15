@@ -6,6 +6,7 @@ class Upload extends Component {
   constructor() {
     super();
     this.state = {
+      ip: 'Loading',
       fileObj: null,
     };
   }
@@ -13,15 +14,26 @@ class Upload extends Component {
   handleFileUpload = () => {
     const file = this.refs.fileName.files[0];
     this.setState({fileObj: file})
-    callAPI(file)
+    this.fetchAjax(file);
+  }
+
+  fetchAjax = (file) => {
+  console.log('Fetching ajax...');
+  callAPI(file)
+    .then(ip => this.setState({ip: ip}))
+    .catch(err => console.log(err, 'There was an error'))
   }
 
   render() {
+    let {ip} = this.state;
     return (
+      <div>
       <form>
       <input type="file" ref="fileName" name="fileName" />
-      <button onClick={this.handleFileUpload}>Upload</button>
+      <button type='button' onClick={this.handleFileUpload}>Upload</button>
       </form>
+      {ip}
+      </div>
     );
   }
 }
