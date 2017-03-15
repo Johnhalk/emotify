@@ -20,7 +20,7 @@ class App extends Component {
 
   render() {
     let {faceData} = this.state;
-    if (typeof faceData === 'object') {
+    if (faceData !== 'Awaiting input...') {
        var graphPresentation = <GraphPresentation data={JSON.parse(faceData)} width={600} height={600}  />
     } else {
       var graphPresentation = faceData
