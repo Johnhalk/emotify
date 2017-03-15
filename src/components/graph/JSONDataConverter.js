@@ -21,15 +21,14 @@ function chartData(dataset) {
     }
 };
 
-function checkForErrors(JSONData) {
+function validate(JSONData) {
   if (!JSONData) {
     throw('Cannot convert data: missing JSON data object');
   }
 };
 
 module.exports = function(JSONdata) {
-  checkForErrors(JSONdata)
+  validate(JSONdata)
   var dataset = getDatasetfromJsonData(JSONdata);
-  console.log("JSONDataConverter", chartData(dataset));
   return chartData(dataset);
 };
