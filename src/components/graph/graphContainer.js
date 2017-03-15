@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import RadarChart, { Radar } from 'react-chartjs';
+import GraphPresentation from './graphPresentation'
 
-var RadarChart = require("react-chartjs").Radar;
-
-class DataConverterContainer extends Component {
+class GraphContainer extends Component {
   getDatasetfromJsonData(jsonData){
     return jsonData[0].scores;
   };
@@ -30,14 +28,8 @@ class DataConverterContainer extends Component {
   render() {
     var dataset = this.getDatasetfromJsonData(this.props.jsonData);
     let chartData = this.chartData(dataset)
-    return <Graph chartData={chartData} width={800} height={800}/>
+    return <GraphPresentation chartData={chartData} width={800} height={800}/>
   }
 };
 
-
-
-const Graph = ({chartData, width, height}) => {
-  return <RadarChart data={chartData} width={width} height={height} />
-};
-
-export default DataConverterContainer;
+export default GraphContainer;
