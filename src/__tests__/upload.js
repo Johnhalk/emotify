@@ -16,7 +16,7 @@ describe('Upload', () => {
 
   it('contains text \'Upload\'', () =>{
     const upload = shallow(<Upload />);
-    expect(upload.find('button').text()).toEqual('Upload')
+    expect(upload.find('button').text()).toEqual('Analyse')
   });
 
   // Need to get this test to work at some point! allow for now.

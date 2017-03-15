@@ -9,11 +9,10 @@ export function callAPI(file) {
     })
   })
   return fetch(request)
-  .then((response) => {
-    return response.json();
+    .then((response) => {
+      return response.json();
   })
-  .then((payload) => {
-    return Promise.resolve(JSON.stringify(payload));
-
+    .then((payload) => {
+      return Promise.resolve(JSON.stringify(payload));
   })
 }
