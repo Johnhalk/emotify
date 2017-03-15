@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
+import {callAPI} from '../services/emotion'
 
 class Upload extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      fileObj: null,
+    };
+  }
+
   handleFileUpload = () => {
     const file = this.refs.fileName.files[0];
-    console.log(file);
+    this.setState({fileObj: file})
+    callAPI(file)
   }
+
   render() {
     return (
       <form>
