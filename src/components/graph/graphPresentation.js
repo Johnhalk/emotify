@@ -6,8 +6,9 @@ var JSONDataConverter = require('./JSONDataConverter');
 
 var RadarChart = require("react-chartjs").Radar;
 
-const GraphPresentation = ({JSONData, width, height}) => {
-  return <RadarChart data={JSONDataConverter(JSONData)} width={width} height={height} />
+const GraphPresentation = ({data, width, height}) => {
+  console.log("GraphPresentation", data)
+  return <RadarChart data={JSONDataConverter(data)} width={width} height={height} redraw />
 };
 
 export default GraphPresentation;

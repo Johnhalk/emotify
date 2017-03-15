@@ -3,11 +3,11 @@ function getDatasetfromJsonData(jsonData){
 };
 
 function getLabels(dataset) {
-  return Object.keys(dataset)
+  return Object.keys(dataset).sort()
 };
 
 function getData(dataset) {
-  return Object.keys(dataset).map(function(key) {
+  return getLabels(dataset).map(function(key) {
     return dataset[key];
   });
 };
@@ -21,14 +21,23 @@ function chartData(dataset) {
     }
 };
 
-function validate(JSONData) {
+function isValid(JSONData) {
+
+};
+
+function checkForErrors(JSONData) {
   if (!JSONData) {
-    throw('Cannot convert data: missing JSON data object')
+    throw('Cannot convert data: missing JSON data object');
+  }
+
+  if (!isValid(JSONData)) {
+    throw('Cannot convert data: JSON data object not correct format');
   }
 };
 
 module.exports = function(JSONdata) {
-  validate(JSONdata)
+  checkForErrors(JSONdata)
   var dataset = getDatasetfromJsonData(JSONdata);
-  return chartData(dataset)
+  console.log("JSONDataConverter", chartData(dataset));
+  return chartData(dataset);
 };
