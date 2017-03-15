@@ -21,17 +21,9 @@ function chartData(dataset) {
     }
 };
 
-function isValid(JSONData) {
-
-};
-
 function checkForErrors(JSONData) {
   if (!JSONData) {
     throw('Cannot convert data: missing JSON data object');
-  }
-
-  if (!isValid(JSONData)) {
-    throw('Cannot convert data: JSON data object not correct format');
   }
 };
 
