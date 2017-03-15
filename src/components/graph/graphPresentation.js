@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import JSONDataConverter from './JSONDataConverter';
+// import JSONDataConverter from './JSONDataConverter';
+
+var JSONDataConverter = require('./JSONDataConverter');
 
 
 var RadarChart = require("react-chartjs").Radar;
