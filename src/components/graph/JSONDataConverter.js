@@ -21,7 +21,14 @@ function chartData(dataset) {
     }
 };
 
+function validate(JSONData) {
+  if (!JSONData) {
+    throw('Cannot convert data: missing JSON data object')
+  }
+};
+
 module.exports = function(JSONdata) {
+  validate(JSONdata)
   var dataset = getDatasetfromJsonData(JSONdata);
   return chartData(dataset)
 };
