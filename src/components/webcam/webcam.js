@@ -16,23 +16,30 @@ class Webcam extends Component {
     })
   }
 
-  takeSnapshot = (refs) => {
-    var hidden_canvas = refs.snapshot,
-        video = refs.video,
-        image = refs.snap,
+  handleSnapshot = (refs) => {
+    var snapProps = this.getSnapshotProperties(refs)
+    var imageBase64 = this.takeSnapshot(snapProps)
+    var blob = this.convertToBlob(imageBase64)
+    this.handleFileUpload(blob)
+  }
 
-        width = video.width,
-        height = video.height,
+  getSnapshotProperties = (refs) => {
+    var p = {
+      canvas: refs.snapshot,
+      video: refs.video,
+      context: refs.snapshot.getContext('2d'),
+      width: refs.video.width,
+      height: refs.video.height
+    }
+    p.canvas.width = p.width
+    p.canvas.height = p.height
+    return p
+  }
 
-        context = hidden_canvas.getContext('2d');
-
-    hidden_canvas.width = width;
-    hidden_canvas.height = height;
-
-    context.drawImage(video, 0, 0, width, height);
-
-    var imageDataURL = hidden_canvas.toDataURL('image/png');
-    this.handleFileUpload(this.convertToBlob(imageDataURL))
+  takeSnapshot = (snapProps) => {
+    snapProps.context.drawImage(snapProps.video, 0, 0, snapProps.width, snapProps.height);
+    var imageDataURL = snapProps.canvas.toDataURL('image/png');
+    return imageDataURL;
   }
 
   convertToBlob = (imageDataURL) => {
@@ -51,7 +58,7 @@ class Webcam extends Component {
   }
 
   render(){
-    return <WebcamPresentation onClickStart={this.activateWebcam} onClickSnap={this.takeSnapshot}/>
+    return <WebcamPresentation onClickStart={this.activateWebcam} onClickSnap={this.handleSnapshot}/>
   }
 }
 
