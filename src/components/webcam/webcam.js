@@ -28,8 +28,8 @@ class Webcam extends Component {
         video = this.refs.video,
         image = this.refs.snap,
 
-        width = video.videoWidth,
-        height = video.videoHeight,
+        width = video.width,
+        height = video.height,
 
         context = hidden_canvas.getContext('2d');
 
@@ -38,7 +38,6 @@ class Webcam extends Component {
 
     context.drawImage(video, 0, 0, width, height);
 
-    // // Get an image dataURL from the canvas.
     var imageDataURL = hidden_canvas.toDataURL('image/png');
     this.setState({snapshot: this.convertToBlob(imageDataURL)})
   }
@@ -62,14 +61,15 @@ class Webcam extends Component {
   render() {
     return (
       <div>
-        <form>
-          <video ref="video" id="video" width="300" height="300" autoPlay></video>
-          <button type="button" onClick={this.activateWebcam}>Start</button>
-          <button type="button" onClick={this.takeSnapshot}>Snap Photo</button>
-          <img ref="snap" id='snap' />
-        <canvas ref="snapshot"></canvas>
-          <button type="button" id="btn" onClick={this.handleFileUpload}>Analyse</button>
-        </form>
+      <p>
+        <button type="button" onClick={this.activateWebcam}>Start</button>
+        <button type="button" onClick={this.takeSnapshot}>Snap Photo</button>
+      </p>
+      <video ref="video" id="video" width="400" height="300" autoPlay></video>
+      <canvas ref="snapshot"></canvas>
+      <p>
+        <button type="button" id="btn" onClick={this.handleFileUpload}>Analyse</button>
+      </p>
       </div>
     )
   }
