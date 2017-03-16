@@ -38,6 +38,7 @@ class App extends Component {
           <Upload onChange={this.getEmotionData}/>
         </div>
         <p>
+        {faceData}
           {graphPresentation}
         </p>
       </div>
