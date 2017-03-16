@@ -41,19 +41,15 @@ class Webcam extends Component {
     // // Get an image dataURL from the canvas.
     var imageDataURL = hidden_canvas.toDataURL('image/png');
     this.setState({snapshot: this.convertToBlob(imageDataURL)})
-
-    // // Set the dataURL as source of an image element, showing the captured photo.
-    // image.setAttribute('src', imageDataURL);
-    // document.querySelector('#dl-btn').href = imageDataURL;
   }
 
   convertToBlob = (imageDataURL) => {
-    return new Blob(
-      [new Buffer(imageDataURL, 'base64')],
-      {
-        type: 'application/octet-stream'
-      }
-    );
+    var binary = atob(imageDataURL.split(',')[1]);
+    var array = [];
+    for (var i = 0; i < binary.length; i++) {
+      array.push(binary.charCodeAt(i));
+    }
+    return new Blob([new Uint8Array(array)], {type: 'image/png'});
   }
 
   handleFileUpload = () => {

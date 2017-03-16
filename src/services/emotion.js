@@ -13,7 +13,6 @@ export function callAPI(file) {
       return response.json();
   })
     .then((payload) => {
-      console.log(payload)
       return Promise.resolve(JSON.stringify(payload));
   })
 }

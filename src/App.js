@@ -36,6 +36,7 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
+          <Upload onChange={this.getEmotionData}/>
           <Webcam onChange={this.getEmotionData}/>
         </div>
         <p>
