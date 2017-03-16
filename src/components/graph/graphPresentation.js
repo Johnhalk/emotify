@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-
 var JSONDataConverter = require('./JSONDataConverter');
-
-
 var RadarChart = require("react-chartjs").Radar;
 
 const GraphPresentation = ({data, width, height}) => {
