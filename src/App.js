@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../public/logo_v1.png';
 import './App.css';
 import Upload from './components/upload'
+import Webcam from './components/webcam/webcam'
 import GraphPresentation from './components/graph/graphPresentation'
 
 class App extends Component {
@@ -35,7 +36,7 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
-          <Upload onChange={this.getEmotionData}/>
+          <Webcam onChange={this.getEmotionData}/>
         </div>
         <p>
           {graphPresentation}
@@ -46,3 +47,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Upload onChange={this.getEmotionData}/>
