@@ -30,6 +30,5 @@ function checkForErrors(JSONData) {
 module.exports = function(JSONdata) {
   checkForErrors(JSONdata)
   var dataset = getDatasetfromJsonData(JSONdata);
-  console.log("JSONDataConverter", chartData(dataset));
   return chartData(dataset);
 };

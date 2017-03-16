@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../public/logo_v1.png';
 import './App.css';
-import Upload from './components/upload'
+import Upload from './components/upload/upload'
 import GraphPresentation from './components/graph/graphPresentation'
 
 class App extends Component {

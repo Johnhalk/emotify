@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {shallow, mount, render} from 'enzyme';
-import Upload from '../components/upload';
+import Upload from './upload';
 
 describe('Upload', () => {
   it('is renders without crashing', () => {

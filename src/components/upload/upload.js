@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { callAPI } from '../services/emotion';
+import { callAPI } from '../../services/emotion';
 
 
 class Upload extends Component {
