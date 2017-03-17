@@ -55,7 +55,7 @@ function getDatasetfromJsonData (dataset) {
      fear:  accumulatedEmotions.totalFear / dataset.length,
      happiness:  accumulatedEmotions.totalHappiness / dataset.length,
      neutral:  accumulatedEmotions.totalNeutral / dataset.length,
-     sadnes:  accumulatedEmotions.totalSadness / dataset.length,
+     sadness:  accumulatedEmotions.totalSadness / dataset.length,
      surprise:  accumulatedEmotions.totalSurprise / dataset.length,
    }
    return averagedEmotions
