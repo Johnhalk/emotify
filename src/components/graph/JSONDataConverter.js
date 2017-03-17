@@ -23,43 +23,71 @@ function checkForErrors(JSONData) {
   }
 };
 
+// function getDatasetfromJsonData (dataset) {
+//    var accumulatedEmotions = {
+//      totalAnger: 0,
+//      totalContempt: 0,
+//      totalDisgust: 0,
+//      totalFear: 0,
+//      totalHappiness: 0,
+//      totalNeutral: 0,
+//      totalSadness: 0,
+//      totalSurprise: 0,
+//    };
+//
+//    dataset.forEach(function(object, index) {
+//      if (index !== dataset.length) {
+//        accumulatedEmotions.totalAnger += object.scores.anger
+//        accumulatedEmotions.totalContempt += object.scores.contempt
+//        accumulatedEmotions.totalDisgust += object.scores.disgust
+//        accumulatedEmotions.totalFear += object.scores.fear
+//        accumulatedEmotions.totalHappiness += object.scores.happiness
+//        accumulatedEmotions.totalNeutral += object.scores.neutral
+//        accumulatedEmotions.totalSadness += object.scores.sadness
+//        accumulatedEmotions.totalSurprise += object.scores.surprise
+//      }
+//
+//    });
+//    var averagedEmotions = {
+//      anger:  accumulatedEmotions.totalAnger / dataset.length,
+//      contempt:  accumulatedEmotions.totalContempt / dataset.length,
+//      disgust:  accumulatedEmotions.totalDisgust / dataset.length,
+//      fear:  accumulatedEmotions.totalFear / dataset.length,
+//      happiness:  accumulatedEmotions.totalHappiness / dataset.length,
+//      neutral:  accumulatedEmotions.totalNeutral / dataset.length,
+//      sadness:  accumulatedEmotions.totalSadness / dataset.length,
+//      surprise:  accumulatedEmotions.totalSurprise / dataset.length,
+//    }
+//    return averagedEmotions
+//  }
+
 function getDatasetfromJsonData (dataset) {
-   var accumulatedEmotions = {
-     totalAnger: 0,
-     totalContempt: 0,
-     totalDisgust: 0,
-     totalFear: 0,
-     totalHappiness: 0,
-     totalNeutral: 0,
-     totalSadness: 0,
-     totalSurprise: 0,
-   };
+  getFaces(dataset)
+}
 
-   dataset.forEach(function(object, index) {
-     if (index !== dataset.length) {
-       accumulatedEmotions.totalAnger += object.scores.anger
-       accumulatedEmotions.totalContempt += object.scores.contempt
-       accumulatedEmotions.totalDisgust += object.scores.disgust
-       accumulatedEmotions.totalFear += object.scores.fear
-       accumulatedEmotions.totalHappiness += object.scores.happiness
-       accumulatedEmotions.totalNeutral += object.scores.neutral
-       accumulatedEmotions.totalSadness += object.scores.sadness
-       accumulatedEmotions.totalSurprise += object.scores.surprise
-     }
+function getFaces (dataset) {
+  var face = []
+  for(var i =0; i<dataset.length; i++){
+    face.push(dataset[i].scores)
+  }
+  averageEmotions(face)
+}
 
-   });
-   var averagedEmotions = {
-     anger:  accumulatedEmotions.totalAnger / dataset.length,
-     contempt:  accumulatedEmotions.totalContempt / dataset.length,
-     disgust:  accumulatedEmotions.totalDisgust / dataset.length,
-     fear:  accumulatedEmotions.totalFear / dataset.length,
-     happiness:  accumulatedEmotions.totalHappiness / dataset.length,
-     neutral:  accumulatedEmotions.totalNeutral / dataset.length,
-     sadness:  accumulatedEmotions.totalSadness / dataset.length,
-     surprise:  accumulatedEmotions.totalSurprise / dataset.length,
-   }
-   return averagedEmotions
- }
+function averageEmotions (face) {
+  var totals = face.reduce(function(totals, object, index) {
+    Object.keys(object).forEach(function(key) {
+      if (index !== face.length -1){
+        totals[key] = totals[key] ? totals[key] + object[key] : object[key]
+        return
+      } else {
+        totals[key] = totals[key] ? (totals[key] + object[key])/face.length : object[key]
+        return
+      }
+    })
+    return totals
+  }, {total: 0});
+}
+
 
 module.exports = function(JSONdata) {
   checkForErrors(JSONdata)
