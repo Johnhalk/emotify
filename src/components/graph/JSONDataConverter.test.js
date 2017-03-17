@@ -27,17 +27,43 @@ return averageAnger
 
 var sum = (0.009464583 + 0.00000215679233 + 7.343825e-12 + 0.0000439515825 + 0.1422279 + 0.3329236)
 
-var totalAnger = 0
-var counter = 0
-multi_face.forEach(function(object) {
-  totalScores += object.scores;
-    totalScores.forEach()
 
-  counter += 1;
-  if (counter === multi_face.length) {
-    totalAnger = totalAnger / multi_face.length;
-  }
-return totalAnger
 
 Object.values(multi_face[0].scores)  // returns object scores
 });
+
+
+var emotionAverages = {
+  totalAnger: 0,
+  totalContempt: 0,
+  totalDisgust: 0,
+};
+
+multi_face.forEach(function(object, index) {
+  if (index !== multi_face.length) {
+    emotionAverages.totalAnger += object.scores.anger
+    emotionAverages.totalContempt += object.scores.contempt
+    emotionAverages.totalDisgust += object.scores.disgust
+  }
+  else {
+     emotionAverages = {
+      anger: emotionAverages.totalAnger / multi_face.length,
+      contempt: emotionAverages.totalContempt / multi_face.length,
+      disgust: emotionAverages.totalDisgust / multi_face.length,
+    }
+  };
+});
+
+
+var totals = multi_face.reduce(function(accumulatedTotals, object, num_faces) {
+  Object.keys(object).forEach(function(key) {
+    console.log(object)
+    if (num_faces !== multi_face.length - 1) {
+      // If we've already set a key we sum the new value, if not we set it
+      accumulatedTotals[key] = accumulatedTotals[key] ? accumulatedTotals[key] + object[key] : object[key]
+    } else {
+      accumulatedTotals[key] = accumulatedTotals[key] + object[key] / multi_face.length
+    }
+  })
+  return accumulatedTotals
+})
