@@ -16,3 +16,9 @@ export function callAPI(file) {
       return Promise.resolve(JSON.stringify(payload));
   })
 }
+
+// module.exports = function(file) {
+//   callAPI(file)
+//     .then(faceData => this.props.onChange(faceData))
+//     .catch(err => console.log(err, 'There was an error'))
+// }

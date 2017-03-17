@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../public/logo_v1.png';
 import './App.css';
-import Camera from './components/snapshot/camera'
+import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphPresentation from './components/graph/graphPresentation'
 
 class App extends Component {
@@ -35,7 +35,7 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
-        CAMERA
+          <SnapshotContainer onChange={this.getEmotionData} width={400} height={300} />
         </div>
         <p>
           {graphPresentation}

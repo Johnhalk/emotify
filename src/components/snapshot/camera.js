@@ -36,8 +36,8 @@ class Camera extends Component {
           this.injectVideoFeed(stream);
           setInterval(function(){
               var image = this.takeSnapshot()
-              // return image to parent and then api etc
-            }.bind(this), 500);
+              this.props.onNewSnapshot(image)
+            }.bind(this), 10000);
         }.bind(this))
 
         .catch(function(err){
@@ -48,8 +48,8 @@ class Camera extends Component {
   render(){
     return (
       <div>
-        <video ref="video" id="video" width="400" height="300" autoPlay></video>
-        <canvas ref="snapshot" width="400" height="300" ></canvas>
+        <video ref="video" id="video" width={this.props.width} height={this.props.height} autoPlay></video>
+        <canvas ref="snapshot" width={this.props.width} height={this.props.height} ></canvas>
       </div>
     )
   }
