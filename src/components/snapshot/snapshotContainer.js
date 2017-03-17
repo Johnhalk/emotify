@@ -12,7 +12,7 @@ class SnapshotContainer extends Component {
     }
   }
 
-  renderCamera = () => {
+  setButtonClickedTrue = () => {
     this.setState({buttonClicked: true})
   }
 
@@ -23,13 +23,13 @@ class SnapshotContainer extends Component {
 
   render = () => {
     if (this.state.buttonClicked) {
-      var camera = <Camera onNewSnapshot={this.handleSnapshot} width={this.props.width} height={this.props.height} />
+      var camera = <Camera onNewSnapshot={this.handleSnapshot} interval={this.props.interval} width={this.props.width} height={this.props.height} />
     } else {
       var camera = ''
     }
     return (
       <div>
-        <StartButton onClick={ this.renderCamera }/>
+        <StartButton onClick={ this.setButtonClickedTrue }/>
         {camera}
       </div>
     )
