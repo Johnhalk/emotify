@@ -26,8 +26,8 @@ describe('Webcam presentation', () => {
   });
 
   it('renders a video', () =>{
-    console.log(webcamPresentation.find(video))
-    expect(webcamPresentation.find(video)).toExist
+    console.log(webcamPresentation.find('video'))
+    expect(webcamPresentation.find('video')).toExist
   });
 
   // it('contains text \'Webcam\'', () =>{
