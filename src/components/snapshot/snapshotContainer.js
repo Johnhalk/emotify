@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import StartButton from './startButton';
 import Camera from './camera';
-import { callAPI } from '../../services/emotion';
 import { convertToBlob } from './imageEncodingConverter'
 
 
@@ -19,13 +18,7 @@ class SnapshotContainer extends Component {
 
   handleSnapshot = (imageBase64) => {
     var blob = convertToBlob(imageBase64)
-    this.handleFileUpload(blob)
-  }
-
-  handleFileUpload = (file) => {
-    callAPI(file)
-      .then(faceData => this.props.onChange(faceData))
-      .catch(err => console.log(err, 'There was an error'))
+    this.props.onChange(blob)
   }
 
   render = () => {

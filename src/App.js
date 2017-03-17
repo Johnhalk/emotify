@@ -3,6 +3,7 @@ import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphPresentation from './components/graph/graphPresentation'
+import { callAPI } from './services/emotion';
 
 class App extends Component {
   constructor(){
@@ -12,7 +13,8 @@ class App extends Component {
     }
   }
 
-  getEmotionData = (faceData) => {
+  getEmotionData = (image) => {
+    var faceData = callAPI(image)
     this.setState({
       faceData: faceData
     })
