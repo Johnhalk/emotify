@@ -17,8 +17,7 @@ class Webcam extends Component {
   }
 
   handleSnapshot = (refs) => {
-    var snapProps = this.getSnapshotProperties(refs)
-    var imageBase64 = this.takeSnapshot(snapProps)
+    var imageBase64 = this.takeSnapshot(refs)
     var blob = this.convertToBlob(imageBase64)
     this.handleFileUpload(blob)
   }
@@ -36,7 +35,8 @@ class Webcam extends Component {
     return p
   }
 
-  takeSnapshot = (snapProps) => {
+  takeSnapshot = (refs) => {
+    var snapProps = this.getSnapshotProperties(refs)
     snapProps.context.drawImage(snapProps.video, 0, 0, snapProps.width, snapProps.height);
     var imageDataURL = snapProps.canvas.toDataURL('image/png');
     return imageDataURL;
