@@ -25,24 +25,27 @@ class Camera extends Component {
 
   injectVideoFeed = (stream) => {
     var video = this.refs.video;
+    var videoStream = stream
+    this.props.onStream(videoStream)
     video.src = window.URL.createObjectURL(stream);
     video.play();
   }
 
   componentDidMount = () => {
-      this.getPromiseCameraActivation(
-      )
-        .then(function(stream){
-          this.injectVideoFeed(stream);
-          setInterval(function(){
-              var image = this.takeSnapshot()
-              this.props.onNewSnapshot(image)
-            }.bind(this), this.props.interval);
-        }.bind(this))
+    this.getPromiseCameraActivation(
+    )
+      .then(function(stream){
+        this.injectVideoFeed(stream);
+        var autoCall = setInterval(function(){
+            var image = this.takeSnapshot()
+            this.props.onNewSnapshot(image)
+          }.bind(this), this.props.interval);
+          this.props.onCall(autoCall)
+      }.bind(this))
 
-        .catch(function(err){
-          throw(err);
-        })
+      .catch(function(err){
+        throw(err);
+      })
   }
 
   render(){
