@@ -37,7 +37,7 @@ class Camera extends Component {
           setInterval(function(){
               var image = this.takeSnapshot()
               this.props.onNewSnapshot(image)
-            }.bind(this), 10000);
+            }.bind(this), this.props.interval);
         }.bind(this))
 
         .catch(function(err){
