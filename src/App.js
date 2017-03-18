@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
-import GraphPresentation from './components/graph/graphPresentation'
+import GraphContainer from './components/graph/graphContainer'
 var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphPresentation = <GraphPresentation data={faceData} width={600} height={600}  />
+       var graphPresentation = <GraphContainer data={faceData} width={600} height={600}  />
     } else {
       var graphPresentation = faceData
     }
