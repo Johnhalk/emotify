@@ -23,6 +23,6 @@ describe('callAPI', function(){
 
   it("callAPI", async function() {
     const response = await callAPI('foo');
-    expect(response).toBe("{\"Id\":\"123\"}");
+    expect(response).toBe({"Id": "123"});
   });
 });
