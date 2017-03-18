@@ -31,9 +31,3 @@ describe('JSONDataConverter', () => {
     expect(function(){JSONDataConverter()}).toThrow('Cannot convert data: missing JSON data object');
   });
 });
-
-
-
-var num = 7.343825e-12
-
-num.toString()
