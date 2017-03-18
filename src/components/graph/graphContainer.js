@@ -1,14 +1,39 @@
 import React, { Component } from 'react';
 var JSONDataConverter = require('./JSONDataConverter');
-import GraphPresentation from './graphPresentation'
+import RadarPresentation from './radarPresentation'
+import SelectGraph from './selectGraph'
 
 class GraphContainer extends Component {
+  constructor() {
+    super()
+    this.state = {
+      graphType: this.props.graphType
+    }
+  }
 
+  changeGraphType(graphType) {
+    this.props.changeGraphType(graphType)
+  }
 
   render() {
+    switch (this.props.graphType) {
+      case "radar":
+        var graph = <RadarPresentation data={JSONDataConverter(this.props.data)} width={this.props.width} height={this.props.height}  onChange={this.changeGraphType}/>;
+        break;
+      case "timeSeries":
+        //var graph = <RadarPresentation data={JSONDataConverter(this.props.data)} width={this.props.width} height={this.props.height}  onChange={this.changeGraphType}/>;
+        var graph
+        break;
+      default:
+        var graph
+
+    }
 
     return (
-      <GraphPresentation data={JSONDataConverter(this.props.data)} width={this.props.width} height={this.props.height}  />
+      <div>
+        <SelectGraph onChange={this.changeGraphType}/>
+        { graph }
+      </div>
     );
   }
 }

@@ -9,8 +9,15 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      faceData: 'Awaiting input...'
+      faceData: 'Awaiting input...',
+      graphType: 'radar'
     }
+  }
+
+  changeGraphType(graphType) {
+    this.setState({
+      graphType: graphType
+    });
   }
 
   updateFaceData = (faceData) => {
@@ -26,7 +33,7 @@ class App extends Component {
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphPresentation = <GraphContainer data={faceData} width={600} height={600}  />
+       var graphPresentation = <GraphContainer data={faceData} width={600} height={600} changeGraphType={this.changeGraphType} />
     } else {
       var graphPresentation = faceData
     }
@@ -42,9 +49,7 @@ class App extends Component {
         <div>
           <SnapshotContainer onChange={this.getEmotionData} interval={3000} width={400} height={300} />
         </div>
-        <p>
           {graphPresentation}
-        </p>
       </div>
     );
   }
