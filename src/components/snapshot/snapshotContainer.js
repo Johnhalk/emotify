@@ -25,7 +25,7 @@ class SnapshotContainer extends Component {
     if (this.state.buttonClicked) {
       var camera = <Camera onNewSnapshot={this.handleSnapshot} interval={this.props.interval} width={this.props.width} height={this.props.height} />
     } else {
-      var camera = ''
+      var camera;
     }
     return (
       <div>
