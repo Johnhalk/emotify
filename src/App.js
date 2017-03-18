@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../public/logo_v1.png';
 import './App.css';
-import Upload from './components/upload/upload'
+import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphPresentation from './components/graph/graphPresentation'
+var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
 
 class App extends Component {
   constructor(){
@@ -12,16 +13,20 @@ class App extends Component {
     }
   }
 
-  getEmotionData = (faceData) => {
+  updateFaceData = (faceData) => {
     this.setState({
       faceData: faceData
     })
   }
 
+  getEmotionData = (image) => {
+    var faceData = mcsEmotionApiTalker(image, this.updateFaceData)
+  }
+
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphPresentation = <GraphPresentation data={JSON.parse(faceData)} width={600} height={600}  />
+       var graphPresentation = <GraphPresentation data={faceData} width={600} height={600}  />
     } else {
       var graphPresentation = faceData
     }
@@ -35,7 +40,7 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
-          <Upload onChange={this.getEmotionData}/>
+          <SnapshotContainer onChange={this.getEmotionData} interval={10000} width={400} height={300} />
         </div>
         <p>
           {graphPresentation}

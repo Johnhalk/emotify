@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
-import { callAPI } from '../services/emotion.js'
-
+var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
 
 describe('callAPI', function(){
 
