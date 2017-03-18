@@ -52,7 +52,6 @@ class SnapshotContainer extends Component {
       </div>
     )
   }
-
 };
 
 export default SnapshotContainer

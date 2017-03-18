@@ -20,12 +20,17 @@ class Camera extends Component {
 
   getPromiseCameraActivation = () => {
     var video = this.refs.video;
-    return navigator.mediaDevices.getUserMedia({video: true});
+    navigator.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    if (navigator.getUserMedia) {
+      return navigator.mediaDevices.getUserMedia({video: true});
+    }
+
   }
 
   injectVideoFeed = (stream) => {
     var video = this.refs.video;
     var videoStream = stream
+    window.stream = stream;
     this.props.onStream(videoStream)
     video.src = window.URL.createObjectURL(stream);
     video.play();
@@ -51,7 +56,7 @@ class Camera extends Component {
   render(){
     return (
       <div>
-        <video ref="video" id="video" width={this.props.width} height={this.props.height} autoPlay></video>
+        <video type='file' accept='video/*' capture='camera' ref="video" id="video" width={this.props.width} height={this.props.height} autoPlay="true"></video>
         <canvas ref="snapshot" width={this.props.width} height={this.props.height} ></canvas>
       </div>
     )
