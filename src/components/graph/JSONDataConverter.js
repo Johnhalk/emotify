@@ -8,14 +8,21 @@ function getData(dataset) {
   });
 };
 
+// function chartData(dataset) {
+//     return {
+//       labels: getLabels(dataset),
+//       datasets: [{
+//           data: getData(dataset)
+//       }]
+//     }
+// };
+
 function chartData(dataset) {
     return {
-      labels: getLabels(dataset),
-      datasets: [{
-          data: getData(dataset)
-      }]
+        date: new Date(),
+        positivity: dataset.happiness
+      };
     }
-};
 
 function checkForErrors(JSONData) {
   if (!JSONData) {
@@ -24,7 +31,7 @@ function checkForErrors(JSONData) {
 };
 
 
-function getDatasetfromJsonData (dataset) {
+function emotionAverager (dataset) {
   var faceNumber = dataset.length
   var emotions = Object.keys(dataset[0].scores)
 
@@ -36,7 +43,6 @@ function getDatasetfromJsonData (dataset) {
     })
     averageEmotions[emotion] = averageEmotions[emotion] / faceNumber
   })
-
   return averageEmotions
 }
 
@@ -44,6 +50,6 @@ function getDatasetfromJsonData (dataset) {
 
 module.exports = function(JSONdata) {
   checkForErrors(JSONdata)
-  var dataset = getDatasetfromJsonData(JSONdata);
+  var dataset = emotionAverager(JSONdata);
   return chartData(dataset);
 };

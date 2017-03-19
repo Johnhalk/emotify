@@ -10,14 +10,10 @@ class App extends Component {
     super()
     this.state = {
       faceData: 'Awaiting input...',
-      graphType: 'radar'
+      interval: 3000,
+      height: 600,
+      width: 600
     }
-  }
-
-  changeGraphType(graphType) {
-    this.setState({
-      graphType: graphType
-    });
   }
 
   updateFaceData = (faceData) => {
@@ -33,9 +29,9 @@ class App extends Component {
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphPresentation = <GraphContainer data={faceData} width={600} height={600} changeGraphType={this.changeGraphType} />
+       var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
     } else {
-      var graphPresentation = faceData
+      var graphContainer = faceData
     }
 
     return (
@@ -47,9 +43,9 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
-          <SnapshotContainer onChange={this.getEmotionData} interval={3000} width={400} height={300} />
+          <SnapshotContainer onChange={this.getEmotionData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
         </div>
-          {graphPresentation}
+          {graphContainer}
       </div>
     );
   }

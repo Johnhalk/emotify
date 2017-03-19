@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 var JSONDataConverter = require('./JSONDataConverter');
-import RadarPresentation from './radarPresentation'
+import RadarPresentation from './graphTypes/radarPresentation'
+import PositivityIndex from './graphTypes/positivityIndex'
 import SelectGraph from './selectGraph'
 
 class GraphContainer extends Component {
@@ -11,30 +12,30 @@ class GraphContainer extends Component {
     }
   }
 
-  changeGraphType(graphType) {
+  changeGraphType = (graphType) => {
     this.setState({
       graphType: graphType
     });
   }
 
   render() {
-    switch (this.props.graphType) {
+    switch (this.state.graphType) {
       case "radar":
-        var graph = <RadarPresentation data={JSONDataConverter(this.props.data)} width={this.props.width} height={this.props.height}  onChange={this.changeGraphType}/>;
+      console.log(this.props.interval)
+      var graph = <PositivityIndex data={JSONDataConverter(this.props.data)} interval={this.props.INTERVAL}/>;
         break;
       case "timeSeries":
-        //var graph = <RadarPresentation data={JSONDataConverter(this.props.data)} width={this.props.width} height={this.props.height}  onChange={this.changeGraphType}/>;
-        var graph
+        console.log(this.props.interval)
+        var graph = <PositivityIndex data={JSONDataConverter(this.props.data)} interval={this.props.INTERVAL}/>;
         break;
       default:
-        var graph
-
+        var graph = 'test'
     }
 
     return (
       <div>
         <SelectGraph onChange={this.changeGraphType}/>
-        { graph }
+        {graph}
       </div>
     );
   }
