@@ -43,7 +43,7 @@ class App extends Component {
           Choose a file and click analyse to begin!
         </p>
         <div>
-          <SnapshotContainer onChange={this.getEmotionData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
+          <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
         </div>
           {graphContainer}
       </div>

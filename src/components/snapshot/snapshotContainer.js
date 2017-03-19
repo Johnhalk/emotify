@@ -40,7 +40,7 @@ class SnapshotContainer extends Component {
 
   render = () => {
     if (this.state.buttonClicked) {
-      var camera = <Camera onStream={this.handleStream} onCall={this.handleCall} onNewSnapshot={this.handleSnapshot} interval={this.props.interval} width={this.props.width} height={this.props.height} />
+      var camera = <Camera onStream={this.handleStream} onCall={this.handleCall} onNewSnapshot={this.handleSnapshot} interval={this.props.interval} />
     } else {
       var camera;
     }

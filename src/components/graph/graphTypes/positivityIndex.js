@@ -8,7 +8,7 @@ const PositivityIndex = ({data, interval}) => {
   const MS = 1000;
 
   var chart = {
-                axis: { y: { min: 0.1, max: 1.0 } },
+                axis: { y: { min: -1.0, max: 1.0 } },
                 point: {show: true}
               };
 

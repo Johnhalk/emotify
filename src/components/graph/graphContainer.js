@@ -26,8 +26,6 @@ class GraphContainer extends Component {
       case "timeSeries":
         var graph = <PositivityIndex data={JSONDataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
         break;
-      default:
-        var graph = 'test'
     }
 
     return (

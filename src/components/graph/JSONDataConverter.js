@@ -1,3 +1,5 @@
+import {positiveIndexer} from './indexer'
+
 function getLabels(dataset) {
   return Object.keys(dataset).sort()
 };
@@ -7,15 +9,6 @@ function getData(dataset) {
     return dataset[key];
   });
 };
-
-// function chartData(dataset) {
-//     return {
-//       labels: getLabels(dataset),
-//       datasets: [{
-//           data: getData(dataset)
-//       }]
-//     }
-// };
 
 function chartData(dataset, graphType) {
   switch (graphType) {
@@ -30,7 +23,7 @@ function chartData(dataset, graphType) {
       case 'timeSeries':
         return {
           date: new Date(),
-          positivity: dataset.happiness
+          positivity: positiveIndexer(dataset)
         };
     }
   };
