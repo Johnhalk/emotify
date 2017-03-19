@@ -21,12 +21,10 @@ class GraphContainer extends Component {
   render() {
     switch (this.state.graphType) {
       case "radar":
-      console.log(this.props.interval)
-      var graph = <PositivityIndex data={JSONDataConverter(this.props.data)} interval={this.props.INTERVAL}/>;
+      var graph = <RadarPresentation data={JSONDataConverter(this.props.data, this.state.graphType)} width={this.props.width} height={this.props.height}/>;
         break;
       case "timeSeries":
-        console.log(this.props.interval)
-        var graph = <PositivityIndex data={JSONDataConverter(this.props.data)} interval={this.props.INTERVAL}/>;
+        var graph = <PositivityIndex data={JSONDataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
         break;
       default:
         var graph = 'test'

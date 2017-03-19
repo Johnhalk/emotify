@@ -17,12 +17,23 @@ function getData(dataset) {
 //     }
 // };
 
-function chartData(dataset) {
-    return {
-        date: new Date(),
-        positivity: dataset.happiness
-      };
+function chartData(dataset, graphType) {
+  switch (graphType) {
+    case 'radar':
+        return {
+          labels: getLabels(dataset),
+          datasets: [{
+              data: getData(dataset)
+          }]
+        }
+      break;
+      case 'timeSeries':
+        return {
+          date: new Date(),
+          positivity: dataset.happiness
+        };
     }
+  };
 
 function checkForErrors(JSONData) {
   if (!JSONData) {
@@ -48,8 +59,8 @@ function emotionAverager (dataset) {
 
 
 
-module.exports = function(JSONdata) {
+module.exports = function(JSONdata, graphType) {
   checkForErrors(JSONdata)
   var dataset = emotionAverager(JSONdata);
-  return chartData(dataset);
+  return chartData(dataset, graphType);
 };
