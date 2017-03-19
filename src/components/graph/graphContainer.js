@@ -7,12 +7,14 @@ class GraphContainer extends Component {
   constructor() {
     super()
     this.state = {
-      graphType: this.props.graphType
+      graphType: 'radar'
     }
   }
 
   changeGraphType(graphType) {
-    this.props.changeGraphType(graphType)
+    this.setState({
+      graphType: graphType
+    });
   }
 
   render() {

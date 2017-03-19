@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class RadarPresentation extends Component  {
+class SelectGraph extends Component  {
   handleChange(e) {
   var graphType = e.target.value;
   this.props.onChange(graphType);
@@ -24,4 +24,4 @@ class RadarPresentation extends Component  {
   };
 }
 
-export default RadarPresentation;
+export default SelectGraph;
