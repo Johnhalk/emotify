@@ -47,7 +47,7 @@ class SnapshotContainer extends Component {
     return (
       <div>
         <StartButton onClick={ this.setButtonClickedTrue }/>
-        <StopButton onClick={ this.setButtonClickedFalse }/>
+        <StopButton  onClick={ this.setButtonClickedFalse }/>
         {camera}
       </div>
     )
