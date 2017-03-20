@@ -12,9 +12,26 @@ class App extends Component {
       faceData: 'Awaiting input...',
       interval: 3000,
       height: 600,
-      width: 600
+      width: 600,
+      windowWidth: window.innerWidth
     }
   }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({
+      windowWidth: window.innerWidth
+     });
+  };
 
   updateFaceData = (faceData) => {
     this.setState({
@@ -27,6 +44,8 @@ class App extends Component {
   }
 
   render() {
+    const isMobile = this.state.windowWidth <= 500;
+
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
        var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
@@ -34,7 +53,7 @@ class App extends Component {
       var graphContainer = faceData
     }
 
-    return (
+    var desktop_version = (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -47,7 +66,15 @@ class App extends Component {
         </div>
           {graphContainer}
       </div>
-    );
+    )
+
+    var mobile_version = (
+      <div className="App">
+MOBILE
+      </div>
+    )
+
+    return isMobile ? mobile_version : desktop_version
   }
 }
 
