@@ -8,6 +8,7 @@ function adjustLightnessToEmotionIntensity(emotion, jsonData){
 
 function findLargestEmotion(jsonData) {
   var emotions = jsonData[0].scores
+  delete emotions['neutral']
   var emotionsList =  Object.keys(emotions)
 
   var higherEmotion = emotionsList.reduce(function(higherEmotion, currEmotion) {
@@ -18,7 +19,6 @@ function findLargestEmotion(jsonData) {
 };
 
 module.exports = function(jsonData) {
-  delete jsonData[0].scores['neutral']
   var largestEmotion = findLargestEmotion(jsonData)
   return adjustLightnessToEmotionIntensity(largestEmotion, jsonData)
 
