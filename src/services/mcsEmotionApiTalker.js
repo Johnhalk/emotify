@@ -5,7 +5,7 @@ function callAPI(file) {
     body: file,
     headers: new Headers({
       "Content-Type": "application/octet-stream",
-      "Ocp-Apim-Subscription-Key": "991aa06967c04a8dbd519baee38b07be"
+      "Ocp-Apim-Subscription-Key": process.env.REACT_APP_MSC_SECRET
     })
   })
   return fetch(request)
