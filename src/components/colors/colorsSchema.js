@@ -15,9 +15,9 @@ const COLOR = {
     lightness: 50
   },
   blueDeep: {
-    hue: 235,
-    saturation: 100,
-    lightness: 50
+    hue: 221,
+    saturation: 92,
+    lightness: 60
   },
   aqua: { //hsl(158, 100%, 67%)
     hue: 158,
@@ -45,9 +45,7 @@ export const EMOTION = {
   happiness: COLOR.yellow,
   anger: COLOR.red,
   sadness: COLOR.blueDeep,
-  neutral: COLOR.off,
   surprise: COLOR.aqua,
-
   contempt: COLOR.lightPink,
   disgust: COLOR.fuchsia,
   fear: COLOR.greenArmy

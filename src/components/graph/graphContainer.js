@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var JSONDataConverter = require('./JSONDataConverter');
+var dataConverter = require('../data/chartDataConverter');
 import RadarPresentation from './graphTypes/radarPresentation'
 import PositivityIndex from './graphTypes/positivityIndex'
 import SelectGraph from './selectGraph'
@@ -21,10 +21,10 @@ class GraphContainer extends Component {
   render() {
     switch (this.state.graphType) {
       case "radar":
-      var graph = <RadarPresentation data={JSONDataConverter(this.props.data, this.state.graphType)} width={this.props.width} height={this.props.height}/>;
+      var graph = <RadarPresentation data={dataConverter(this.props.data, this.state.graphType)} width={this.props.width} height={this.props.height}/>;
         break;
-      case "timeSeries":
-        var graph = <PositivityIndex data={JSONDataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
+      case "positivity":
+        var graph = <PositivityIndex data={dataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
         break;
     }
 

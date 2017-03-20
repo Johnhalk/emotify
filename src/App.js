@@ -3,7 +3,8 @@ import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
-var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
+import ColorsPresentation from './components/colors/colorsPresentation'
+import {callAPI} from './services/mcsEmotionApiTalker'
 
 class App extends Component {
   constructor(){
@@ -23,15 +24,19 @@ class App extends Component {
   }
 
   getEmotionData = (image) => {
-    var faceData = mcsEmotionApiTalker(image, this.updateFaceData)
+    callAPI(image)
+      .then(faceData => this.updateFaceData(faceData))
+      .catch(err => console.log(err, 'There was an error'))
   }
 
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
+       var graphContainer = <GraphContainer data={this.state.faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
+       var colorsPresentation = <ColorsPresentation data={this.state.faceData} width={this.state.width} height={this.state.height} />
     } else {
       var graphContainer = faceData
+      var colorsPresentation;
     }
 
     return (
@@ -45,7 +50,9 @@ class App extends Component {
         <div>
           <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
         </div>
+        <br/>
           {graphContainer}
+          {colorsPresentation}
       </div>
     );
   }
