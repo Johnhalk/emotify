@@ -7,12 +7,12 @@ export function callAPI(file) {
       "Content-Type": "application/octet-stream",
       "Ocp-Apim-Subscription-Key": "991aa06967c04a8dbd519baee38b07be"
     })
-  })
+  });
   return fetch(request)
     .then((response) => {
       return response.json();
   })
     .then((payload) => {
       return Promise.resolve(payload);
-  })
+  });
 }

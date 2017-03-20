@@ -1,9 +1,9 @@
 function turnOn() {
   var request = new Request('https://api.lifx.com/v1/lights/all/toggle', {
     method: 'POST',
-    mode: 'cors',
+    mode: 'cors'
     headers: new Headers({
-      "Authorization: Bearer YOUR_APP_TOKEN",
+      "Authorization" : "Bearer YOUR_APP_TOKEN"
     })
   })
   return fetch(request)
@@ -29,7 +29,7 @@ function updateColour(hue, brightness, saturation) {
       "duration": 5,
     }
     headers: new Headers({
-      "Authorization: Bearer YOUR_APP_TOKEN",
+      "Authorization" : "Bearer YOUR_APP_TOKEN",
     })
   })
   return fetch(request)
