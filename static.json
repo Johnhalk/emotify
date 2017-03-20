@@ -1,1 +1,4 @@
-{ "https_only": true }
+{
+  "https_only": true,
+  "root": "build/"
+}
