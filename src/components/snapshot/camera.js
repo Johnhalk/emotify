@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './camera.css';
 
 class Camera extends Component {
   getSnapshotProperties = () => {
@@ -56,8 +57,8 @@ class Camera extends Component {
   render(){
     return (
       <div>
-        <video type='file' accept='video/*' capture='camera' ref="video" id="video" width={this.props.width} height={this.props.height} autoPlay="true"></video>
-        <canvas ref="snapshot" width={this.props.width} height={this.props.height} ></canvas>
+        <video type='file' accept='video/*' capture='camera' ref="video" id="video" width={600} height={600} autoPlay="true"></video>
+        <canvas ref="snapshot" width={600} height={600} ></canvas>
       </div>
     )
   }

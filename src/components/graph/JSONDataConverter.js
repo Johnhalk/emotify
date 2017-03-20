@@ -1,3 +1,5 @@
+import {positiveIndexer} from './indexer'
+
 function getLabels(dataset) {
   return Object.keys(dataset).sort()
 };
@@ -8,14 +10,23 @@ function getData(dataset) {
   });
 };
 
-function chartData(dataset) {
-    return {
-      labels: getLabels(dataset),
-      datasets: [{
-          data: getData(dataset)
-      }]
+function chartData(dataset, graphType) {
+  switch (graphType) {
+    case 'radar':
+        return {
+          labels: getLabels(dataset),
+          datasets: [{
+              data: getData(dataset)
+          }]
+        }
+      break;
+      case 'timeSeries':
+        return {
+          date: new Date(),
+          positivity: positiveIndexer(dataset)
+        };
     }
-};
+  };
 
 function checkForErrors(JSONData) {
   if (!JSONData) {
@@ -24,7 +35,7 @@ function checkForErrors(JSONData) {
 };
 
 
-function getDatasetfromJsonData (dataset) {
+function emotionAverager (dataset) {
   var faceNumber = dataset.length
   var emotions = Object.keys(dataset[0].scores)
 
@@ -36,14 +47,13 @@ function getDatasetfromJsonData (dataset) {
     })
     averageEmotions[emotion] = averageEmotions[emotion] / faceNumber
   })
-
   return averageEmotions
 }
 
 
 
-module.exports = function(JSONdata) {
+module.exports = function(JSONdata, graphType) {
   checkForErrors(JSONdata)
-  var dataset = getDatasetfromJsonData(JSONdata);
-  return chartData(dataset);
+  var dataset = emotionAverager(JSONdata);
+  return chartData(dataset, graphType);
 };
