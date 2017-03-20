@@ -3,7 +3,7 @@ import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
-var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
+import  {callAPI} from './services/mcsEmotionApiTalker'
 
 class App extends Component {
   constructor(){
@@ -23,7 +23,9 @@ class App extends Component {
   }
 
   getEmotionData = (image) => {
-    var faceData = mcsEmotionApiTalker(image, this.updateFaceData)
+    callAPI(image)
+      .then(faceData => this.updateFaceData(faceData))
+      .catch(err => console.log(err, 'There was an error'))
   }
 
   render() {
