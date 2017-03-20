@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
-import { callAPI } from './mcsEmotionApiTalker'
+import { callAPI } from './mcsEmotionApiTalker';
 
 describe('callAPI', function(){
 
