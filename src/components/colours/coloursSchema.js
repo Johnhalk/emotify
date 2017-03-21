@@ -1,4 +1,4 @@
-const COLOR = {
+const COLOUR = {
   off: {
     hue: 0,
     saturation: 0,
@@ -42,11 +42,11 @@ const COLOR = {
 }
 
 export const EMOTION = {
-  happiness: COLOR.yellow,
-  anger: COLOR.red,
-  sadness: COLOR.blueDeep,
-  surprise: COLOR.aqua,
-  contempt: COLOR.lightPink,
-  disgust: COLOR.fuchsia,
-  fear: COLOR.greenArmy
+  happiness: COLOUR.yellow,
+  anger: COLOUR.red,
+  sadness: COLOUR.blueDeep,
+  surprise: COLOUR.aqua,
+  contempt: COLOUR.lightPink,
+  disgust: COLOUR.fuchsia,
+  fear: COLOUR.greenArmy
 }

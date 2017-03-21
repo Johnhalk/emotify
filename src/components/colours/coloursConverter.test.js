@@ -1,8 +1,8 @@
 // https://www.w3schools.com/colors/colors_hsl.asp
-import * as CONF from './colorsSchema';
-import ColorsConverter from './colorsConverter';
+import * as CONF from './coloursSchema';
+import ColoursConverter from './coloursConverter';
 // anger contempt disgust fear happiness neutral sadness surprise
-describe('ColorsConverter', () => {
+describe('ColoursConverter', () => {
   var jsonData
   beforeEach(() => {
     jsonData = [{"faceRectangle":{"height":64,"left":85,"top":50,"width":64},"scores":{"anger":0.000000001,"contempt":0.000000001,"disgust":0.000000001,"fear":0.000000001,"happiness":0.000000001,"neutral":0.000000001,"sadness":0.000000001,"surprise":0.000000001}}];
@@ -16,7 +16,7 @@ describe('ColorsConverter', () => {
       lightness: 50
     }
 
-    expect(ColorsConverter(jsonData)).toEqual(colorExpected);
+    expect(ColoursConverter(jsonData)).toEqual(colorExpected);
   });
 
   it('converts happiness according to schema', () => {
@@ -28,7 +28,7 @@ describe('ColorsConverter', () => {
       var original = jsonData[0].scores[emotion]
       jsonData[0].scores[emotion] = 1
 
-      expect(ColorsConverter(jsonData)).toEqual(CONF.EMOTION[emotion]);
+      expect(ColoursConverter(jsonData)).toEqual(CONF.EMOTION[emotion]);
       jsonData[0].scores[emotion] = original
     })
   });
@@ -44,7 +44,7 @@ describe('ColorsConverter', () => {
       lightness: 25
     }
 
-    expect(ColorsConverter(jsonData)).toEqual(colorExpected);
+    expect(ColoursConverter(jsonData)).toEqual(colorExpected);
   })
 
 });

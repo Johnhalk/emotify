@@ -1,7 +1,7 @@
 function turnOn() {
   var request = new Request('https://api.lifx.com/v1/lights/all/toggle', {
     method: 'POST',
-    mode: 'cors'
+    mode: 'cors',
     headers: new Headers({
       "Authorization" : "Bearer YOUR_APP_TOKEN"
     })
@@ -17,17 +17,17 @@ function turnOn() {
   })
 }
 
-function updateColour(hue, brightness, saturation) {
+function updateColour(colour) {
   var request = new Request('https://api.lifx.com/v1/lights/all/state', {
     method: 'POST',
     mode: 'cors',
     body: {
       "power": "on",
-      "hue": hue,
-      "saturation": brightness,
-      "brightness": saturation,
+      "hue": colour.hue,
+      "saturation": colour.saturation,
+      "brightness": colour.brightness,
       "duration": 5,
-    }
+    },
     headers: new Headers({
       "Authorization" : "Bearer YOUR_APP_TOKEN",
     })
