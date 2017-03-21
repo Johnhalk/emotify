@@ -7,8 +7,8 @@ var jsdom = require("jsdom");
 
 describe('RadarPresentation', () => {
   it('renders without crashing', () => {
-    var jsonData = JSON.parse('[{"faceRectangle":{"height":64,"left":85,"top":50,"width":64},"scores":{"anger":0.000008362581,"contempt":0.00023066772,"disgust":0.00000190693913,"fear":0.00000262125877,"happiness":0.0000301946984,"neutral":0.000008362581,"sadness":0.000635955657,"surprise":0.0000298200466}}]');
-    const graph = render(<RadarPresentation data={jsonData} width={600} height={600}   />)
+    var jsonData = {"datasets": [{"data": [0.08077703189702896, 0.01471538897610642, 0.11032597376841269, 0.13458586104152429, 0.17748477807353502, 0.1194413753618961, 0.17306394622506927, 0.1896056243283232]}], "labels": ["anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"]}
+    const graph = mount(<RadarPresentation data={jsonData} width={600} height={600}   />)
     expect(graph).toExist
   });
 
