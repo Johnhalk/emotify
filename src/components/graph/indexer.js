@@ -8,5 +8,5 @@ export function positiveIndexer (dataset) {
     (dataset.sadness * -10) +
     (dataset.neutral * 0)) / 10
   );
-  return index
+    return index
 };
