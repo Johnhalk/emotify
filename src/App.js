@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../public/logo_horizontal_v2.png';
+import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
@@ -55,9 +55,16 @@ class App extends Component {
     });
   };
 
+  setIsMobile = () => {
+    this.setState({
+      isMobile: this.state.windowWidth <= 500
+    });
+  };
 
   componentWillMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
+    this.setIsMobile()
+
   }
 
   // make sure to remove the listener
@@ -70,6 +77,7 @@ class App extends Component {
     this.setState({
       windowWidth: window.innerWidth
      });
+    this.setIsMobile()
   };
 
   updateFaceData = (faceData) => {
@@ -83,7 +91,7 @@ class App extends Component {
   }
 
   render() {
-    const isMobile = this.state.windowWidth <= 500;
+
     const { index } = this.state;
 
     let {faceData} = this.state;
@@ -124,7 +132,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
-          <div  className="main-cointaner">
+          <div className="main-cointaner">
             <Tabs value={index}>
               <Tab label="PANEL" value={0} onClick={this.handleChangeTabs(0)} />
               <Tab label="GRAPH" value={1} onClick={this.handleChangeTabs(1)} />
@@ -146,7 +154,7 @@ class App extends Component {
       </div>
     );
 
-    return isMobile ? mobile_version : desktop_version
+    return this.state.isMobile ? mobile_version : mobile_version
   }
 }
 
