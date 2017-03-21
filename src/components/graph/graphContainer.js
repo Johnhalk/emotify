@@ -21,10 +21,10 @@ class GraphContainer extends Component {
   render() {
     switch (this.state.graphType) {
       case "radar":
-      var graph = <RadarPresentation className="RadarPresentation" data={dataConverter(this.props.data, this.state.graphType)} width={this.props.width} height={this.props.height}/>;
+      var graph = <RadarPresentation data={dataConverter(this.props.data, this.state.graphType)} width={this.props.width} height={this.props.height}/>;
         break;
       case "positivity":
-        var graph = <PositivityIndex className="PositivityIndex" data={dataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
+        var graph = <PositivityIndex data={dataConverter(this.props.data, this.state.graphType)} interval={this.props.interval}/>;
         break;
     }
 
