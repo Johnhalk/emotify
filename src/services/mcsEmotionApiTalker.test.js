@@ -12,7 +12,7 @@ describe('callAPI', function(){
           ok: true,
           Id: '123',
           json: function() {
-            return {Id: '1234'}
+            return {Id: '123'}
           }
         });
       });
