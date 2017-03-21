@@ -14,5 +14,8 @@ export function callAPI(file) {
   })
     .then((payload) => {
       return Promise.resolve(payload);
+  })
+    .catch((err) => {
+      console.log(err);
   });
 }

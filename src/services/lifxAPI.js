@@ -1,44 +1,38 @@
-function turnOn() {
-  var request = new Request('https://api.lifx.com/v1/lights/all/toggle', {
-    method: 'POST',
-    mode: 'cors'
+export function updateColour(colour) {
+  var request = new Request('https://api.lifx.com/v1/lights/all/state?', {
+    method: 'PUT',
+    mode: 'cors',
+    body: JSON.stringify({
+      "power": "on",
+      "color": colour.type,
+      "saturation": colour.saturation/100,
+      "brightness": colour.brightness/100,
+      "duration": 1
+    }),
     headers: new Headers({
-      "Authorization" : "Bearer YOUR_APP_TOKEN"
+      "Accept": "*/*",
+      "Authorization" : process.env.REACT_APP_LIFX_SECTRET,
+      "Content-Type": "application/json",
+      "Content-Length": 56,
+      "Accept-Encoding": "gzip, deflate"
     })
   })
   return fetch(request)
-    .then((response) => {
-      console.log(response);
-      return
-  })
-    .then((payload) => {
-      console.log(payload);
-      return
-  })
+    .catch((err) => {
+      console.log(err);
+  });
 }
 
-function updateColour(hue, brightness, saturation) {
-  var request = new Request('https://api.lifx.com/v1/lights/all/state', {
+export function togglePower() {
+  var request = new Request('https://api.lifx.com/v1/lights/all/toggle', {
     method: 'POST',
     mode: 'cors',
-    body: {
-      "power": "on",
-      "hue": hue,
-      "saturation": brightness,
-      "brightness": saturation,
-      "duration": 5,
-    }
     headers: new Headers({
-      "Authorization" : "Bearer YOUR_APP_TOKEN",
+      "Authorization" : process.env.REACT_APP_LIFX_SECTRET
     })
   })
   return fetch(request)
-    .then((response) => {
-      console.log(response);
-      return
-  })
-    .then((payload) => {
-      console.log(payload);
-      return
-  })
+    .catch((err) => {
+      console.log(err);
+  });
 }
