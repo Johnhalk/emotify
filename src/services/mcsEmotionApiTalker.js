@@ -15,4 +15,4 @@ export function callAPI(file) {
     .then((payload) => {
       return Promise.resolve(payload);
   })
-}
+};
