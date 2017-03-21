@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {shallow, mount, render} from 'enzyme';
-import WebcamPresentation from './webcamPresentation'
+import WebcamPresentation from '../snapshot/camera'
 
 describe('Webcam presentation', () => {
   let activateWebcam = jest.fn();
@@ -20,13 +20,12 @@ describe('Webcam presentation', () => {
     expect(webcamPresentation.find("start")).toExist
   });
 
-  xit('handleClickStart calls activateWebcam', () =>{
+  it('handleClickStart calls activateWebcam', () =>{
     webcamPresentation.simulate('click', 'start')
     expect(activateWebcam).toBeCalled();
   });
 
   it('renders a video', () =>{
-    console.log(webcamPresentation.find('video'))
     expect(webcamPresentation.find('video')).toExist
   });
 

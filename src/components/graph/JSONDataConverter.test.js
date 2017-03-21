@@ -25,8 +25,6 @@ describe('JSONDataConverter', () => {
     expect(parseInt(totalToFiveDecimal)).toEqual(1);
   });
 
-
-
  it('fails if there is no argument', () => {
     expect(function(){JSONDataConverter()}).toThrow('Cannot convert data: missing JSON data object');
   });

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
-var  mcsEmotionApiTalker = require ('./services/mcsEmotionApiTalker');
+var  mcsEmotionApiTalker = require ('./mcsEmotionApiTalker');
+// import {callAPI} from './mcsEmotionApiTalker'
 
 describe('callAPI', function(){
 
@@ -12,7 +13,7 @@ describe('callAPI', function(){
           ok: true,
           Id: '123',
           json: function() {
-            return {Id: '123'}
+            return {Id: '1234'}
           }
         });
       });
@@ -21,7 +22,8 @@ describe('callAPI', function(){
   });
 
   it("callAPI", async function() {
-    const response = await callAPI('foo');
-    expect(response).toBe({"Id": "123"});
+    const response = await mcsEmotionApiTalker.callAPI('foo');
+    console.log(response)
+    expect(response).toBe({"Id": "1234"});
   });
 });
