@@ -3,7 +3,7 @@ import logo from '../public/logo_v1.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
-import ColoursPresentation from './components/colours/coloursPresentation'
+import ColoursContainer from './components/colours/coloursContainer'
 import {callAPI} from './services/mcsEmotionApiTalker'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
     super()
     this.state = {
       faceData: 'Awaiting input...',
-      interval: 3000,
+      interval: 4000,
       height: 600,
       width: 600
     }
@@ -33,10 +33,8 @@ class App extends Component {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
        var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
-       var coloursPresentation = <ColoursPresentation data={faceData} />
     } else {
       var graphContainer = faceData
-      var coloursPresentation;
     }
 
     return (
@@ -49,10 +47,10 @@ class App extends Component {
         </p>
         <div>
           <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
+          <ColoursContainer data={faceData}/>
         </div>
         <br/>
           {graphContainer}
-          {coloursPresentation}
       </div>
     );
   }

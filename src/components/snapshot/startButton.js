@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class StartButton extends Component {
-
   handleClick = () => {
     this.props.onClick()
   }
