@@ -13,8 +13,8 @@ class SelectGraph extends Component  {
           <option value="radar">
             Radar
           </option>
-          <option value="timeSeries">
-            Time Series
+          <option value="positivity">
+            Positivity Index
           </option>
         </select>
       </div>

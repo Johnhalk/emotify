@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ColorsConverter from './colorsConverter';
+import colorsConverters from './colorsConverter';
 
 const ColorsPresentation = ({data, width, height}) => {
-  var color = ColorsConverter(data)
+  var color = colorsConverters(data)
   var style = {
     backgroundColor: `hsl(${color.hue}, ${color.saturation}%,  ${color.lightness}%)`,
     width: width,
-    height:height
+    height: height
   }
   return (
     <div style={style}></div>

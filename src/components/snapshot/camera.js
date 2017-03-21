@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './camera.css';
 
 class Camera extends Component {
   getSnapshotProperties = () => {
@@ -20,7 +19,6 @@ class Camera extends Component {
   }
 
   getPromiseCameraActivation = () => {
-    var video = this.refs.video;
     navigator.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     if (navigator.getUserMedia) {
       return navigator.mediaDevices.getUserMedia({video: true});
@@ -31,7 +29,6 @@ class Camera extends Component {
   injectVideoFeed = (stream) => {
     var video = this.refs.video;
     var videoStream = stream
-    window.stream = stream;
     this.props.onStream(videoStream)
     video.src = window.URL.createObjectURL(stream);
     video.play();
@@ -57,8 +54,8 @@ class Camera extends Component {
   render(){
     return (
       <div>
-        <video type='file' accept='video/*' capture='camera' ref="video" id="video" width={600} height={600} autoPlay="true"></video>
-        <canvas ref="snapshot" width={600} height={600} ></canvas>
+        <video type='file' style={{display: "none"}} accept='video/*' capture='camera' ref="video" id="video" width={720} height={1280} autoPlay="true"></video>
+        <canvas ref="snapshot" style={{display: "none"}} width={720} height={1280} ></canvas>
       </div>
     )
   }

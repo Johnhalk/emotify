@@ -1,4 +1,5 @@
 import {positiveIndexer} from './indexer'
+import {emotionAverager} from './emotionScores'
 
 function getLabels(dataset) {
   return Object.keys(dataset).sort()
@@ -20,7 +21,7 @@ function chartData(dataset, graphType) {
           }]
         }
       break;
-      case 'timeSeries':
+      case 'positivity':
         return {
           date: new Date(),
           positivity: positiveIndexer(dataset)
@@ -33,24 +34,6 @@ function checkForErrors(JSONData) {
     throw('Cannot convert data: missing JSON data object');
   }
 };
-
-
-function emotionAverager (dataset) {
-  var faceNumber = dataset.length
-  var emotions = Object.keys(dataset[0].scores)
-
-  var averageEmotions = {}
-  emotions.forEach(function(emotion) {
-    averageEmotions[emotion] = 0
-    dataset.forEach(function(face) {
-      averageEmotions[emotion] += face.scores[emotion]
-    })
-    averageEmotions[emotion] = averageEmotions[emotion] / faceNumber
-  })
-  return averageEmotions
-}
-
-
 
 module.exports = function(JSONdata, graphType) {
   checkForErrors(JSONdata)

@@ -9,13 +9,14 @@ const PositivityIndex = ({data, interval}) => {
 
   var chart = {
                 axis: { y: { min: -1.0, max: 1.0 } },
-                point: {show: true}
+                point: {show: true},
+                size: {width: 1000, height: 350},
               };
 
   var initialData = [{ date: new Date(), positivity: 0}];
   var maxValues = ((SECONDS/(interval/MS))*MINUTES)
 
-  return <RTChart fields={['positivity']} data={data} chart={chart} initialData={initialData} />
+  return <RTChart fields={['positivity']} data={data} chart={chart} initialData={initialData} maxValues={maxValues}/>
 };
 
 export default PositivityIndex;
