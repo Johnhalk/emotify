@@ -1,17 +1,28 @@
 .App {
   text-align: center;
   background: #39D1B4;
+  height: 100%;
 }
-
-/*.App-logo {
-  height: 120px;
-}*/
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.swipeable-views, .slide, .react-swipeable-view-container {
+  height: 100%;
+}
+
+.slide {
+  padding: 15;
+  color: #fff;
+  height: 100%
+}
+.slide1 {
+  background-color: #FEA900;
+}
+.slide2 {
+  background-color: #B3DC4A;
+}
+.slide3 {
+  background-color: #6AC0FF;
 }

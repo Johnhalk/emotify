@@ -9,24 +9,6 @@ import ColoursContainer from './components/colours/coloursContainer'
 
 import SwipeableViews from 'react-swipeable-views';
 
-const styles = {
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: '#fff',
-    height: "100%"
-  },
-  slide1: {
-    backgroundColor: '#FEA900',
-  },
-  slide2: {
-    backgroundColor: '#B3DC4A',
-  },
-  slide3: {
-    backgroundColor: '#6AC0FF',
-  },
-};
-
 class App extends Component {
   constructor(){
     super()
@@ -54,27 +36,23 @@ class App extends Component {
   render() {
     let {faceData} = this.state;
 
-    var graphContainer
+    var graphContainer = faceData
+    var colourContainer
     if (faceData !== 'Awaiting input...') {
        graphContainer = <GraphContainer data={faceData} width={200} height={200} interval={this.state.interval} />
-       var colourContainer = <ColoursContainer data={faceData}/>
-
-    } else {
-      graphContainer = faceData
-      var colourContainer;
+       colourContainer = <ColoursContainer data={faceData}/>
     }
 
-    const { tabIndex } = this.props;
     return (
       <div className="App">
         <SwipeableViews index={this.props.tabIndex} onChangeIndex={this.handleChangeIndex} className="swipeable-views">
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>
+          <div className="slide slide1">
             <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide2)}>
+          <div className="slide slide2">
             {graphContainer}
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide3)} className="asadsafd">
+          <div className="slide slide3" className="asadsafd">
             SEE CHANGING COLORS!
             {colourContainer}
           </div>

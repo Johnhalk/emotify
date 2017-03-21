@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-import LogoPresentation from './components/logo/logoPresentation'
+import logo from './../public/logo_horizontal_v2.png';
 
 // bunch of needed material-ui components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -37,8 +37,10 @@ class Index extends Component {
     const { index } = this.state;
 
     return (
-      <div>
-        <LogoPresentation />
+      <div className="wrapper">
+        <div className="logo">
+          <img src={logo} className="logo-img" alt="logo"/>
+        </div>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <div className="main-cointaner">
             <Tabs value={index}>
