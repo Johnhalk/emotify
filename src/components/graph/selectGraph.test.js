@@ -4,23 +4,20 @@ import {shallow, mount, render} from 'enzyme';
 import SelectGraph from './selectGraph';
 
 describe('Select Graph', () => {
-  it('it renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(<select />, div);
-    });
 
-  it('it can show a radar graph', () =>{
-    const graph = render(<option value = 'radar'> Radar </option>)
-    expect(graph).toExist
-  });
+  it ('selects graph based on value', () => {
+    const div = document.createElement('div');
 
-  it('it can show a radar graph', () =>{
-    const graph = render(<option value = 'timeSeries'> Time Series </option>)
-    expect(graph).toExist
-  });
+    var selectGraph = ReactDOM.render(<SelectGraph  />, div)
+    console.log(selectGraph.handleChange('radar'))
+    expect(graphContainer.state.graphType).toEqual('radar')
+  })
 
-  it('changes depending on graph type', () => {
-    var graph = handleChange(radar)
-    expect(graph).toContain('radar')
-  });
+  it ('', () => {
+
+  })
+
+
+
+
 });

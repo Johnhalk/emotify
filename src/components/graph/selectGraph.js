@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class SelectGraph extends Component  {
   handleChange = (e) => {
   var graphType = e.target.value;
+  console.log(graphType)
   this.props.onChange(graphType);
   }
 
