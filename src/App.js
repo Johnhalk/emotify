@@ -33,7 +33,6 @@ class App extends Component {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
        var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
-<<<<<<< HEAD
        var colourContainer = <ColoursContainer data={faceData}/>
     } else {
       var graphContainer = faceData
