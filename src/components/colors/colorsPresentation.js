@@ -5,8 +5,8 @@ const ColorsPresentation = ({data, width, height}) => {
   var color = colorsConverters(data)
   var style = {
     backgroundColor: `hsl(${color.hue}, ${color.saturation}%,  ${color.lightness}%)`,
-    width: width,
-    height: height
+    width: 300,
+    height: 300
   }
   return (
     <div style={style}></div>

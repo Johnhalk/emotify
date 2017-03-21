@@ -32,10 +32,10 @@ class App extends Component {
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
-       var graphContainer = <GraphContainer data={this.state.faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
-       var colorsPresentation = <ColorsPresentation data={this.state.faceData} />
+       var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
+       var colorsPresentation = <ColorsPresentation data={faceData} />
     } else {
-      var graphContainer = faceData
+      var graphContainer = faceData;
       var colorsPresentation;
     }
 

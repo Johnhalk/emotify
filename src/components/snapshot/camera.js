@@ -54,8 +54,8 @@ class Camera extends Component {
   render(){
     return (
       <div>
-        <video type='file' style={{display: "none"}} accept='video/*' capture='camera' ref="video" id="video" width={720} height={1280} autoPlay="true"></video>
-        <canvas ref="snapshot" style={{display: "none"}} width={720} height={1280} ></canvas>
+        <video type='file' style={{display: "none"}} accept='video/*' capture='camera' ref="video" id="video" width={600} height={600} autoPlay="true"></video>
+        <canvas ref="snapshot" style={{display: "none"}} width={600} height={600} ></canvas>
       </div>
     )
   }
