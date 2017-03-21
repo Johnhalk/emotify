@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../public/logo_v1.png';
+import logo from '../public/logo_horizontal_v2.png';
 import './App.css';
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
