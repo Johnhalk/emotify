@@ -1,5 +1,4 @@
 export function callAPI(file) {
-  console.log(file)
   var request = new Request('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?', {
     method: 'POST',
     mode: 'cors',
@@ -15,5 +14,8 @@ export function callAPI(file) {
   })
     .then((payload) => {
       return Promise.resolve(payload);
+  })
+    .catch((err) => {
+      console.log(err);
   });
 }

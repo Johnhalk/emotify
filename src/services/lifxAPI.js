@@ -1,9 +1,14 @@
 export function updateColour(colour) {
-  console.log(colour);
   var request = new Request('https://api.lifx.com/v1/lights/all/state?', {
     method: 'PUT',
     mode: 'cors',
-    body: colour,
+    body: JSON.stringify({
+      "power": "on",
+      "color": colour.type,
+      "saturation": colour.saturation/100,
+      "brightness": colour.brightness/100,
+      "duration": 1
+    }),
     headers: new Headers({
       "Accept": "*/*",
       "Authorization" : "Bearer c19dd2b0a1fe3916afbc45116b6b153dac02e5c784c31a5e5cc0900b60dbe8fd",
@@ -13,9 +18,6 @@ export function updateColour(colour) {
     })
   })
   return fetch(request)
-    .then((response) => {
-      console.log(response);
-  })
     .catch((err) => {
       console.log(err);
   });
@@ -30,9 +32,6 @@ export function togglePower() {
     })
   })
   return fetch(request)
-    .then((response) => {
-      console.log(response);
-  })
     .catch((err) => {
       console.log(err);
   });

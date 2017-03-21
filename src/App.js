@@ -33,8 +33,10 @@ class App extends Component {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
        var graphContainer = <GraphContainer data={faceData} width={this.state.width} height={this.state.height} interval={this.state.interval} />
+       var colourContainer = <ColoursContainer data={faceData}/>
     } else {
       var graphContainer = faceData
+      var colourContainer;
     }
 
     return (
@@ -47,7 +49,7 @@ class App extends Component {
         </p>
         <div>
           <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
-          <ColoursContainer data={faceData}/>
+          {colourContainer}
         </div>
         <br/>
           {graphContainer}
