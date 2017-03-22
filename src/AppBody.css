@@ -2,30 +2,14 @@
   /*text-align: center; /* mobile version */
   background: #39D1B4;
   height: 100%;
-}
-
-.swipeable-views, .slide, .react-swipeable-view-container {
-  height: 100%;
-}
-
-.body-containers {
-  height: 100%;
   display: inline-block;
+  width: 100%
 }
-.slide {
-  padding: 15;
-  color: #fff;
-}
-.body-container-1 {
-  background-color: #FEA900;
-  width: 30% /* for desktop vers */
-}
-.body-container-2 {
-  background-color: #B3DC4A;
-  width: 70% /* for desktop vers */
 
+.snapshotContainer {
+  background: #d1ab3a;
 }
-.body-container-3 {
-  background-color: #6AC0FF;
-  display: none;
+
+.graphContainer {
+  background: #78d13b;
 }

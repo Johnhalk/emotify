@@ -23,28 +23,10 @@ html, body {
 .logo {
   border-bottom: thin solid;
   height: 90px;
-  margin-top: -90px;
+  margin-top: -91px;
   background-color: white;
   color: black;
   font-style: italic;
   font-family: arial;
   text-align: center;
-}
-
-/*  MAIN CONTAINER  */
-.main-cointaner{
-  position: absolute;
-  padding-top: 92px; /* for desktop */
-  /*padding-top: 140px;/* for mobile */ 
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-/* selecting the tab container element*/
-div[value="0"], div[value="1"], div[value="2"] {
-  height: 48px;
-  margin-top: -48px;
-  display: none; /* for desktop version */
 }
