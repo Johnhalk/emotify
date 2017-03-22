@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import {callAPI} from './services/mcsEmotionApiTalker'
 
 import './AppBody.css';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+
+
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
 import ColoursContainer from './components/colours/coloursContainer'
@@ -55,8 +60,16 @@ class AppBody extends Component {
 
     return (
       <div className="AppBody">
-        <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
-        {graphContainer}
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={6} md={4}>
+              <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
+            </Col>
+            <Col xs={12} md={8}>
+              {graphContainer}
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
