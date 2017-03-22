@@ -1,11 +1,7 @@
-.App {
+.AppBody {
   text-align: center;
   background: #39D1B4;
   height: 100%;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 .swipeable-views, .slide, .react-swipeable-view-container {

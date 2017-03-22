@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AppBody from './AppBody';
 import './index.css';
 
 import logo from './../public/logo_horizontal_v2.png';
@@ -48,7 +48,7 @@ class Index extends Component {
               <Tab label="GRAPH" value={1} onClick={this.handleChangeTabs(1)} />
               <Tab label="COLOR" value={2} onClick={this.handleChangeTabs(2)} />
             </Tabs>
-            <App tabIndex={this.state.index} handleChangeIndex={this.handleChangeIndex}/>
+            <AppBody tabIndex={this.state.index} handleChangeIndex={this.handleChangeIndex}/>
           </div>
         </MuiThemeProvider>
       </div>
