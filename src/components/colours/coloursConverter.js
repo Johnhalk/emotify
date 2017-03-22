@@ -6,14 +6,14 @@ import {updateColour} from '../../services/lifxAPI'
 function adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion){
   var colour = CONF.EMOTION[maxEmotion];
   var emotionIntensity = averageEmotion[maxEmotion];
-  colour.brightness = Math.min(Math.max(colour.brightness * emotionIntensity, 60), 100);
+  colour.brightness = Math.min(Math.max(colour.brightness * emotionIntensity, 40), 95);
   return colour;
 }
 
-module.exports = function(dataset) {
+module.exports = function(dataset, api) {
   var averageEmotion = emotionAverager(dataset);
   var maxEmotion = getLargestEmotion(averageEmotion);
   var colour = adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion);
-  updateColour(colour)
+  if (api === undefined) { updateColour(colour)}
   return colour
 };

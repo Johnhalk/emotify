@@ -7,43 +7,43 @@ const COLOUR = {
   red: {
     hue: 0,
     saturation: 100,
-    brightness: 50,
+    brightness: 100,
     type: "red"
   },
   yellow: {
     hue: 59,
     saturation: 100,
-    brightness: 50,
+    brightness: 100,
     type: "yellow"
   },
   blueDeep: {
     hue: 221,
     saturation: 92,
-    brightness: 60,
+    brightness: 100,
     type: "blue"
   },
-  aqua: { //hsl(158, 100%, 67%)
+  aqua: {
     hue: 158,
     saturation: 100,
-    brightness: 67,
+    brightness: 100,
     type: "cyan"
   },
-  lightPink: { //hsl(55, 50%, 69%)
+  lightPink: {
     hue: 55,
     saturation: 50,
-    brightness: 69,
+    brightness: 100,
     type: "pink"
   },
-  fuchsia: { //hsl(31, 32%, 50%)
+  fuchsia: {
     hue: 31,
     saturation: 32,
-    brightness: 50,
+    brightness: 100,
     type: "purple"
   },
-  greenArmy: { // hsl(120°, 100%, 29%)
+  greenArmy: {
     hue: 120,
     saturation: 100,
-    brightness: 29,
+    brightness: 100,
     type: "green"
   }
 }

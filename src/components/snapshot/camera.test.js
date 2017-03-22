@@ -4,12 +4,8 @@ import {shallow, mount, render} from 'enzyme';
 import Camera from './camera'
 
 describe('Webcam presentation', () => {
-  // let activateWebcam = jest.fn();
-  let camera = render(<Camera handleClickStart={activateWebcam}/>)
-  //
-  // beforeEach(function(){
-  //   activateWebcam.mockClear();
-  // })
+
+  let webcamPresentation = render(<Camera handleClickStart={activateWebcam}/>)
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -21,7 +17,10 @@ describe('Webcam presentation', () => {
   });
 
   xit('handleClickStart calls activateWebcam', () =>{
-    webcamPresentation.simulate('click', 'start')
+    let activateWebcam = jest.fn();
+    var camera = render(<Camera handleClickStart={activateWebcam}/>)
+    activateWebcam.mockClear();
+    camera.simulate('click', 'start')
     expect(activateWebcam).toBeCalled();
   });
 
