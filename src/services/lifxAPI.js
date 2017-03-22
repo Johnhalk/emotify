@@ -27,7 +27,7 @@ export function togglePower() {
     method: 'POST',
     mode: 'cors',
     headers: new Headers({
-      "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET,
+      "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET
     })
   })
   return fetch(request)
