@@ -27,14 +27,17 @@ class SnapshotContainer extends Component {
 
   handleSnapshot = (imageBase64) => {
     var blob = convertToBlob(imageBase64)
+    console.log("blob", blob)
     this.props.onChange(blob)
   }
 
   handleCall = (autoCall) => {
+    console.log("autoCall", autoCall)
     this.setState({autoCall: autoCall})
   }
 
   handleStream = (videoStream) => {
+    console.log("videostream :", videoStream)
     this.setState({videoStream: videoStream})
   }
 
