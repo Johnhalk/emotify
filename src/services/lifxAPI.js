@@ -4,8 +4,7 @@ export function updateColour(colour) {
     mode: 'cors',
     body: JSON.stringify({
       "power": "on",
-      "color": colour.type,
-      "saturation": colour.saturation/100,
+      "color": colour.type + " hue:" + colour.hue/100 + " saturation: " + colour.saturation/100,
       "brightness": colour.brightness/100,
       "duration": 1
     }),
