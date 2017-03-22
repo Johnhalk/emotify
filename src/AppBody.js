@@ -49,23 +49,33 @@ class AppBody extends Component {
 
   render() {
     var graphContainer = this.getFaceDataForGraph()
-    var colourContainer = this.getFaceDataForGraph()
+    var colourContainer = this.getFaceDataForColour()
 
+    // turning off swipe elements, to use only with mobile version
+    var swipeLibraryElementOpen, swipeLibraryElementClose, swipeCssClass
+    var isMobile = false;
+    if (isMobile) {
+      swipeLibraryElementOpen = <SwipeableViews index={this.props.tabIndex} onChangeIndex={this.handleChangeIndex} className="swipeable-views">
+      swipeLibraryElementClose = </SwipeableViews>
+      swipeCssClass = "slide"
+    } else {
+      swipeCssClass = ""
+    }
 
     return (
       <div className="AppBody">
-        <SwipeableViews index={this.props.tabIndex} onChangeIndex={this.handleChangeIndex} className="swipeable-views">
-          <div className="slide slide1">
+        {swipeLibraryElementOpen}
+          <div className={swipeCssClass + "body-container-1 body-containers"}>
             <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
           </div>
-          <div className="slide slide2">
+          <div className={swipeCssClass + "body-container-2 body-containers"}>
             {graphContainer}
           </div>
-          <div className="slide slide3">
-            SEE CHANGING COLORS!
-            {colourContainer}
+          <div className={swipeCssClass + "body-container-3 body-containers"}>
+            // SEE CHANGING COLORS!
+            // {colourContainer}
           </div>
-        </SwipeableViews>
+        {swipeLibraryElementClose}
       </div>
     );
   }

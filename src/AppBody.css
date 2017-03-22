@@ -1,5 +1,5 @@
 .AppBody {
-  text-align: center;
+  /*text-align: center; /* mobile version */
   background: #39D1B4;
   height: 100%;
 }
@@ -8,17 +8,24 @@
   height: 100%;
 }
 
+.body-containers {
+  height: 100%;
+  display: inline-block;
+}
 .slide {
   padding: 15;
   color: #fff;
-  height: 100%
 }
-.slide1 {
+.body-container-1 {
   background-color: #FEA900;
+  width: 30% /* for desktop vers */
 }
-.slide2 {
+.body-container-2 {
   background-color: #B3DC4A;
+  width: 70% /* for desktop vers */
+
 }
-.slide3 {
+.body-container-3 {
   background-color: #6AC0FF;
+  display: none;
 }
