@@ -15,8 +15,8 @@ class Index extends Component {
       <div className="wrapper">
         <div className="logo">
           <img src={logo} className="logo-img" alt="logo"/>
-          <AppBody/>
         </div>
+        <AppBody/>
       </div>
 
     )

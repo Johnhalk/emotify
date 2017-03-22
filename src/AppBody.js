@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import {callAPI} from './services/mcsEmotionApiTalker'
 
 import './AppBody.css';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
 
 import SnapshotContainer from './components/snapshot/snapshotContainer'
 import GraphContainer from './components/graph/graphContainer'
 import ColoursContainer from './components/colours/coloursContainer'
+
+import SidebarPresentation from './sidebarPresentation'
+
+import {Panel, Grid, Col, Row} from 'react-bootstrap'
 
 
 class AppBody extends Component {
@@ -58,18 +58,30 @@ class AppBody extends Component {
     var graphContainer = this.getFaceDataForGraph()
     var colourContainer = this.getFaceDataForColour()
 
+    const title = (
+      <h3>Settings</h3>
+    );
+
+
+
     return (
-      <div className="AppBody">
-        <Grid className="container-fluid">
-          <Row className="show-grid">
-            <Col xs={6} md={4}>
+      <div className="wrapper">
+          <div id="sidebar-wrapper">
+            <Panel header={title} bsStyle="info">
               <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
-            </Col>
-            <Col xs={12} md={8}>
-              {graphContainer}
-            </Col>
-          </Row>
-        </Grid>
+            </Panel>
+          </div>
+          <div id="page-content-wrapper">
+              <div class="page-content">
+                  <Grid>
+                      <Row>
+                          <Col md="12">
+                            sadsadsadas
+                          </Col>
+                      </Row>
+                  </Grid>
+              </div>
+          </div>
       </div>
     );
   }
