@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class StartButton extends Component {
   render = () =>{
-    return <button type='button' className='Start' onClick={this.props.onClick}>Start Capturing</button>
+    return <Button bsStyle="primary" bsSize="large" block  onClick={this.props.onClick}>Start Capturing</Button>
   }
 }
 

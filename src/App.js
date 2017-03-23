@@ -40,19 +40,22 @@ class App extends Component {
       var colourContainer;
     }
 
+    const wellStyles = {maxWidth: 300, margin: '0 auto 10px', backgroundColor: "hsla(193, 79%, 91%, 1)"};
+    const wellStylesGraph = {maxWidth: 1100, margin: '0 auto 10px', backgroundColor: "hsla(193, 79%, 91%, 1)"};
+
 
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        <div>
-          <div>
+        <div className="mainBody">
+          <div className="well" style={wellStyles}>
             <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
             {colourContainer}
             </div>
 
-            <div>
+            <div  className="well" style={wellStylesGraph}>
             {graphContainer}
           </div>
         </div>

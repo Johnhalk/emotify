@@ -10,7 +10,7 @@
 .App-header {
   background-color: white;
   height: 120px;
-  padding: 10px;
+  padding: 5px;
   color: black;
   font-style: italic;
   font-family: arial;
@@ -21,7 +21,6 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.mainBody {
+  padding: 10px;
 }
