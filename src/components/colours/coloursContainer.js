@@ -28,7 +28,7 @@ class ColoursContainer extends Component {
   }
 
   render = () => {
-    coloursConverter(this.props.data)
+    coloursConverter(this.props.data, this.props.api)
 
     let colourButtonText = this.state.colourMode ? "Off" : "On"
     let colourButtonClass =  this.state.colourMode ? "danger" : "success"
