@@ -6,7 +6,7 @@ import {updateColour} from '../../services/lifxAPI'
 function adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion){
   var colour = CONF.EMOTION[maxEmotion];
   var emotionIntensity = averageEmotion[maxEmotion];
-  colour.brightness = Math.min(Math.max(colour.brightness * emotionIntensity, 40), 95);
+  colour.brightness = Math.min(Math.max(colour.brightness * emotionIntensity, 70), 95);
   return colour;
 }
 

@@ -30,7 +30,7 @@ describe ('lifxAPI', function(){
         brightness: 50,
         type: "red"
       }
-      const response = await updateColour(color);
+      const response = await updateColour(color,true);
       expect(response).toEqual({"id": "d073d52180f1", "label": "LIFX Bulb 2180f1", "ok": true, "status": "207"});
     });
   });
