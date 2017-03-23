@@ -2,9 +2,7 @@
 
 ![Imgur](http://imgur.com/yDt4N0y.png)
 
-### Your go-to for presentations [GET THE TAG LINE]
-
-
+### Transforming your presentations
 
 ## Core Features
 
