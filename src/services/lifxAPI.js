@@ -3,7 +3,6 @@ export function updateColour(colour) {
     method: 'PUT',
     mode: 'cors',
     body: JSON.stringify({
-      "power": "on",
       "color": colour.type,
       "brightness": colour.brightness/100,
       "duration": 1

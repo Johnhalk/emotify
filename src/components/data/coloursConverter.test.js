@@ -1,5 +1,4 @@
-
-import * as CONF from './coloursSchema';
+import * as CONF from '../colours/coloursSchema';
 import ColoursConverter from './coloursConverter';
 
 describe('ColoursConverter', () => {

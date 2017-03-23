@@ -1,4 +1,4 @@
-import * as CONF from './coloursSchema';
+import * as CONF from '../colours/coloursSchema';
 import {emotionAverager} from '../data/emotionScores'
 import {getLargestEmotion} from '../data/emotionScores'
 import {updateColour} from '../../services/lifxAPI'
