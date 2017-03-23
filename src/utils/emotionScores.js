@@ -21,7 +21,7 @@ export function getLargestEmotion(dataset) {
   return maxEmotion
 };
 
-function removeNeutral(dataset) {
+export function removeNeutral(dataset) {
   delete dataset['neutral'];
   return dataset
 }
