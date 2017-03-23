@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ColourButton extends Component {
   render = () =>{
-    return <button type='button' className='Start' onClick={this.props.onClick}>{this.props.name}</button>
+    return <button type='button' onClick={this.props.onClick}>{this.props.name}</button>
   }
 }
 
