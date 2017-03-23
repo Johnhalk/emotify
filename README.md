@@ -9,8 +9,8 @@
   - App activates webcam
   - Photographs taken based on interval set
   - Emotions analysed
-  - Handles multiple faces in photo
   - Plots emotions on spider diagram
+  - Handles multiple faces in photo - averages emotions
   - Real-time plotting and emotion analysis on time-series graph
   - Hardware integration - light colour changes depending on emotional state
   - Mobile optimisation
@@ -50,6 +50,10 @@ So that I can have real-time data
 As a user,
 I want my analysed crowd to be displayed in a positive index graph,
 So that I can track developments in positive emotion over time
+
+As a user,
+I want the light to change colour based on emotion,
+So that I can improve my mood
 
 ```
 
@@ -93,5 +97,3 @@ Or you can experience this [online](https://emotify-ma.herokuapp.com/)
 
 - You can run the tests through 'npm test' in project root directory
 - See the coverage by 'npm test -- --coverage' in project root directory
-
-## Dependencies
