@@ -29,6 +29,7 @@ class App extends Component {
       .catch(err => console.log(err, 'There was an error'))
   }
 
+
   render() {
     let {faceData} = this.state;
     if (faceData !== 'Awaiting input...') {
@@ -39,20 +40,22 @@ class App extends Component {
       var colourContainer;
     }
 
+
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        <p className="App-intro">
-          Choose a file and click analyse to begin!
-        </p>
         <div>
-          <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
-          {colourContainer}
+          <div>
+            <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
+            {colourContainer}
+            </div>
+
+            <div>
+            {graphContainer}
+          </div>
         </div>
-        <br/>
-          {graphContainer}
       </div>
     );
   }
