@@ -61,7 +61,7 @@ So that I can improve my mood
 
 ![Imgur](http://imgur.com/yVX16Uc.png)
 
-## Technologies and Dependencies
+## Technologies and Dependencies -- SPLIT?? WHICH WHERE
 
 **Core**
 - React
@@ -77,6 +77,7 @@ So that I can improve my mood
 
 **Styling**
 - HTML/CSS
+- Bootstrap
 
 **Testing**
 - Jest
@@ -96,4 +97,4 @@ Or you can experience this [online](https://emotify-ma.herokuapp.com/)
 ## Testing
 
 - You can run the tests through 'npm test' in project root directory
-- See the coverage by 'npm test -- --coverage' in project root directory
+- See the coverage by 'npm test -- --coverage' 
