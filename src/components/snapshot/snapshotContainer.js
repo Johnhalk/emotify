@@ -54,7 +54,7 @@ class SnapshotContainer extends Component {
 
     return (
         <div>
-          <Button bsStyle={cameraButtonClass} bsSize="large" block  onClick={this.handleCameraButton} active={this.state.buttonClicked}>{cameraButtonText} Capturing</Button>
+          <Button bsStyle={cameraButtonClass} block  onClick={this.handleCameraButton} active={this.state.buttonClicked}>{cameraButtonText} Capturing</Button>
           {camera}
         </div>
     )

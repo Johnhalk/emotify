@@ -35,7 +35,7 @@ class ColoursContainer extends Component {
 
     return (
       <div>
-        <Button bsStyle={colourButtonClass} bsSize="large" block  onClick={this.handleColourButton} active={this.state.colourMode}>Colour Mode {colourButtonText}</Button>
+        <Button bsStyle={colourButtonClass} block  onClick={this.handleColourButton} active={this.state.colourMode}>Colour Mode {colourButtonText}</Button>
       </div>
     )
   }

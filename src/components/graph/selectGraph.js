@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
+import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 class SelectGraph extends Component  {
-  handleChange = (e) => {
-    console.log(e)
-  var graphType = e.target.value;
-
-  this.props.onChange(graphType);
+  handleSelection = (eventKey, e) => {
+    this.props.onChange(eventKey);
   }
 
   render(){
+    let graphType = {
+      radar: "Radar",
+      positivity: "Time Series"
+    }
     return (
       <div>
-        <select id="graphTypeSelect" onChange={this.handleChange}>
-          <option value="radar">
-            Radar
-          </option>
-          <option value="positivity">
-            Positivity Index
-          </option>
-        </select>
+        <DropdownButton title={graphType[this.props.graphType]} id="dropdown-size-medium" onSelect={this.handleSelection}>
+          <MenuItem eventKey="radar">Radar</MenuItem>
+          <MenuItem eventKey="positivity">Time Series</MenuItem>
+        </DropdownButton>
       </div>
     );
   };
