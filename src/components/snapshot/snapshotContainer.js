@@ -3,7 +3,7 @@ import StartButton from './startButton';
 import StopButton from './stopButton';
 import Camera from './camera';
 import { convertToBlob } from './imageEncodingConverter'
-
+import { Button } from 'react-bootstrap';
 
 class SnapshotContainer extends Component {
   constructor() {
@@ -38,18 +38,25 @@ class SnapshotContainer extends Component {
     this.setState({videoStream: videoStream})
   }
 
+  handleCameraButton = () => {
+    this.state.buttonClicked ? this.setButtonClickedFalse() : this.setButtonClickedTrue()
+  }
+
   render = () => {
     if (this.state.buttonClicked) {
       var camera = <Camera onStream={this.handleStream} onCall={this.handleCall} onNewSnapshot={this.handleSnapshot} interval={this.props.interval} />
     } else {
       var camera;
     }
+
+    let cameraButtonText = this.state.buttonClicked ? "Stop" : "Start"
+    let cameraButtonClass =  this.state.buttonClicked ? "danger" : "success"
+
     return (
-      <div>
-        <StartButton onClick={ this.setButtonClickedTrue }/>
-        <StopButton onClick={ this.setButtonClickedFalse }/>
-        {camera}
-      </div>
+        <div>
+          <Button bsStyle={cameraButtonClass} block  onClick={this.handleCameraButton} active={this.state.buttonClicked}>{cameraButtonText} Capturing</Button>
+          {camera}
+        </div>
     )
   }
 };

@@ -30,7 +30,7 @@ class GraphContainer extends Component {
 
     return (
       <div>
-        <SelectGraph onChange={this.changeGraphType}/>
+        <SelectGraph onChange={this.changeGraphType} graphType={this.state.graphType}/>
         {graph}
       </div>
     );
