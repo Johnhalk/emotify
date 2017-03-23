@@ -24,3 +24,19 @@
 .mainBody {
   padding: 10px;
 }
+
+.wellStyles {
+  max-width: 300px;
+  margin: 0 auto 10px;
+  background-color: hsla(193, 79%, 91%, 1)
+}
+
+.wellStylesGraph {
+  max-width: 1100px;
+  margin: 0 auto 10px;
+  background-color: hsla(193, 79%, 91%, 1)
+}
+
+.wellStyles > div {
+  padding: 5px
+}

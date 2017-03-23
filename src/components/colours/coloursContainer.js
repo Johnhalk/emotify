@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ColourButton from './colourButton'
 import colourConverter from '../data/coloursConverter';
 import {togglePower} from '../../services/lifxAPI'
+import { Button } from 'react-bootstrap';
 
 
 class ColoursContainer extends Component {
@@ -22,13 +23,19 @@ class ColoursContainer extends Component {
     togglePower()
   }
 
+  handleColourButton = () => {
+    this.state.colourMode ? this.stopColours() : this.startColours()
+  }
+
   render = () => {
     colourConverter(this.props.data)
 
+    let colourButtonText = this.state.colourMode ? "Off" : "On"
+    let colourButtonClass =  this.state.colourMode ? "danger" : "success"
+
     return (
       <div>
-        <ColourButton onClick={ this.startColours } name={"Colour Mode On"}/>
-        <ColourButton onClick={ this.stopColours } name={"Colour Mode Off"}/>
+        <Button bsStyle={colourButtonClass} bsSize="large" block  onClick={this.handleColourButton} active={this.state.colourMode}>Colour Mode {colourButtonText}</Button>
       </div>
     )
   }
