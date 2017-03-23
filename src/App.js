@@ -50,7 +50,6 @@ class App extends Component {
             <SnapshotContainer onChange={this.getEmotionData} interval={this.state.interval} />
             {colourContainer}
             </div>
-
             <div  className="well wellStylesGraph">
             {graphContainer}
           </div>

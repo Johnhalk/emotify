@@ -1,24 +1,47 @@
-export function updateColour(colour) {
-  var request = new Request('https://api.lifx.com/v1/lights/all/state?', {
-    method: 'PUT',
-    mode: 'cors',
-    body: JSON.stringify({
-      "color": colour.type,
-      "brightness": colour.brightness/100,
-      "duration": 1
-    }),
-    headers: new Headers({
-      "Accept": "*/*",
-      "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET,
-      "Content-Type": "application/json",
-      "Content-Length": 56,
-      "Accept-Encoding": "gzip, deflate"
+export function updateColour(colour, api) {
+  if (api === undefined) {
+      var request = new Request('https://api.lifx.com/v1/lights/all/state?', {
+        method: 'PUT',
+        mode: 'cors',
+        body: JSON.stringify({
+          "color": colour.type,
+          "brightness": colour.brightness/100,
+          "duration": 1
+        }),
+        headers: new Headers({
+          "Accept": "*/*",
+          "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET,
+          "Content-Type": "application/json",
+          "Content-Length": 56,
+          "Accept-Encoding": "gzip, deflate"
+        })
+      })
+      return fetch(request)
+        .catch((err) => {
+          console.log(err);
+      });
+  } else {
+    var request = new Request('https://api.lifx.com/v1/lights/all/state?', {
+      method: 'PUT',
+      mode: 'cors',
+      body: JSON.stringify({
+        "color": colour.type,
+        "brightness": colour.brightness/100,
+        "duration": 1
+      }),
+      headers: new Headers({
+        "Accept": "*/*",
+        "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET,
+        "Content-Type": "application/json",
+        "Content-Length": 56,
+        "Accept-Encoding": "gzip, deflate"
+      })
     })
-  })
-  return fetch(request)
-    .catch((err) => {
-      console.log(err);
-  });
+    return fetch(request)
+      .catch((err) => {
+        console.log(err);
+    });
+  }
 }
 
 export function togglePower() {
