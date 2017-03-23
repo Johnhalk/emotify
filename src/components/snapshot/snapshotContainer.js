@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import StartButton from './startButton';
-import StopButton from './stopButton';
 import Camera from './camera';
 import { convertToBlob } from './imageEncodingConverter'
 import { Button } from 'react-bootstrap';
