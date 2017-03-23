@@ -90,11 +90,11 @@ Deployed to [Heroku](https://emotify-ma.herokuapp.com/)
 - Clone this repo
 - Run 'npm install' in project root directory
 - Run 'npm start' to run the local server
-- Open 'http://localhost:3000' to view app
+- Open `http://localhost:3000` to view app
 
 Or you can experience this [online](https://emotify-ma.herokuapp.com/)
 
 ## Testing
 
-- You can run the tests through 'npm test' in project root directory
-- See the coverage by 'npm test -- --coverage' 
+- You can run the tests through `npm test` in project root directory
+- See the coverage by `npm test -- --coverage`
