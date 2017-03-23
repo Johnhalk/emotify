@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {shallow, mount, render} from 'enzyme';
-import StartColours from './startColours'
+import StartColours from './colourButton'
 
 describe('Start Button', () => {
   it('is renders a start button', () => {

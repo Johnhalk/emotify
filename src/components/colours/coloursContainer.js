@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import StartColours from './startColours'
-import StopColours from './stopColours'
-import ColoursPresentation from './coloursPresentation';
+import ColourButton from './colourButton'
+import colourConverter from '../data/coloursConverter';
 import {togglePower} from '../../services/lifxAPI'
 
 
@@ -24,17 +23,12 @@ class ColoursContainer extends Component {
   }
 
   render = () => {
-    if (this.state.colourMode) {
-      var colours = <ColoursPresentation data={this.props.data}/>
-    } else {
-      var colours;
-    }
+    colourConverter(this.props.data)
 
     return (
       <div>
-        <StartColours onClick={ this.startColours }/>
-        <StopColours onClick={ this.stopColours }/>
-        {colours}
+        <ColourButton onClick={ this.startColours } name={"Colour Mode On"}/>
+        <ColourButton onClick={ this.stopColours } name={"Colour Mode Off"}/>
       </div>
     )
   }
