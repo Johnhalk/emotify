@@ -4,7 +4,6 @@ import {shallow, mount, render} from 'enzyme';
 import Camera from './camera'
 
 describe('Webcam presentation', () => {
-
   let webcamPresentation = render(<Camera handleClickStart={activateWebcam}/>)
 
   it('renders without crashing', () => {
@@ -28,10 +27,4 @@ describe('Webcam presentation', () => {
     console.log(webcamPresentation.find('video'))
     expect(webcamPresentation.find('video')).toExist
   });
-
-  // it('contains text \'Webcam\'', () =>{
-  //   const webcam = shallow(<Webcam />);
-  //   expect(webcam.find('button').text()).toEqual('Analyse')
-  // });
-
 });

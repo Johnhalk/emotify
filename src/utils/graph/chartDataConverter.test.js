@@ -1,4 +1,4 @@
-var dataConverter = require('./chartDataConverter');
+import {dataConverter} from './chartDataConverter'
 
 describe('dataConverter', () => {
   it('converts an MCS Emotion API JSON response to a ChartJS data object', () => {

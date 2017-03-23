@@ -4,7 +4,6 @@ import { shallow, mount, render } from 'enzyme';
 import SnapshotContainer from './snapshotContainer';
 
 describe('Snapshot container', () => {
-
   it ('renders without crashing', () => {
     const div = document.createElement('div');
     var snapshotContainer = ReactDOM.render(<SnapshotContainer />, div)

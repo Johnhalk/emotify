@@ -1,5 +1,5 @@
 import {positiveIndexer} from './indexer'
-import {emotionAverager} from './emotionScores'
+import {emotionAverager} from '../emotionScores'
 
 function getLabels(dataset) {
   return Object.keys(dataset).sort()
@@ -35,7 +35,7 @@ function checkForErrors(JSONData) {
   }
 };
 
-module.exports = function(JSONdata, graphType) {
+export function dataConverter (JSONdata, graphType) {
   checkForErrors(JSONdata)
   var dataset = emotionAverager(JSONdata);
   return chartData(dataset, graphType);
