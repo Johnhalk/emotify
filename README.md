@@ -61,7 +61,7 @@ So that I can improve my mood
 
 ![Imgur](http://imgur.com/yVX16Uc.png)
 
-## Technologies and Dependencies -- SPLIT?? WHICH WHERE
+## Technologies and Dependencies 
 
 **Core**
 - React
