@@ -10,7 +10,8 @@ describe ('lifxAPI', function(){
       var p = new Promise((resolve, reject) => {
         resolve({
           ok: true,
-          Id: '123',
+          id: "d073d52180f1",
+          label: "LIFX Bulb 2180f1",
           status: '207',
         });
       });
@@ -19,7 +20,7 @@ describe ('lifxAPI', function(){
   });
   it('togglePower', async function() {
     const response = await togglePower();
-    expect(response).toEqual({"Id": "123", "ok": true, "status": "207"});
+    expect(response).toEqual({"id": "d073d52180f1", "label": "LIFX Bulb 2180f1", "ok": true, "status": "207"});
   });
 
     it('updateColour', async function() {
@@ -30,6 +31,6 @@ describe ('lifxAPI', function(){
         type: "red"
       }
       const response = await updateColour(color);
-      expect(response).toEqual({"Id": "123", "ok": true, "status": "207"});
+      expect(response).toEqual({"id": "d073d52180f1", "label": "LIFX Bulb 2180f1", "ok": true, "status": "207"});
     });
   });

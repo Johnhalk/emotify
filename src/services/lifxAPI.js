@@ -4,7 +4,7 @@ export function updateColour(colour) {
     mode: 'cors',
     body: JSON.stringify({
       "power": "on",
-      "color": colour.type + " hue:" + colour.hue/100 + " saturation: " + colour.saturation/100,
+      "color": colour.type,
       "brightness": colour.brightness/100,
       "duration": 1
     }),
@@ -27,7 +27,7 @@ export function togglePower() {
     method: 'POST',
     mode: 'cors',
     headers: new Headers({
-      "Authorization" : 'Bearer ' + process.env.REACT_APP_LIFX_SECTRET
+      "Authorization" : 'Bearer c19dd2b0a1fe3916afbc45116b6b153dac02e5c784c31a5e5cc0900b60dbe8fd'
     })
   })
   return fetch(request)
