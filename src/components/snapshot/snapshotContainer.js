@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Camera from './camera';
-import { convertToBlob } from './imageEncodingConverter'
+import { convertToBlob } from '../../utils/data/imageEncodingConverter'
 import { Button } from 'react-bootstrap';
 
 class SnapshotContainer extends Component {

@@ -1,5 +1,5 @@
 export function positiveIndexer (dataset) {
-  var index = (
+  const index = (
     ((dataset.anger * -8) +
     (dataset.happiness * 10) +
     (dataset.disgust * -6) +
