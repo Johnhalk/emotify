@@ -55,11 +55,11 @@ So that I can track developments in positive emotion over time
 
 ```
 
-## Technical Architecture
+## Dependency Overview
 
 ![Imgur](http://imgur.com/yVX16Uc.png)
 
-## Technologies Used
+## Technologies and Dependencies
 
 **Core**
 - React
@@ -94,16 +94,6 @@ Or you can experience this [online](https://emotify-ma.herokuapp.com/)
 ## Testing
 
 - You can run the tests through 'npm test' in project root directory
-- See the coverage by 'npm test -- --coverage' in project root directory 
-
-
-
-
-
-
-
-
-
-
+- See the coverage by 'npm test -- --coverage' in project root directory
 
 ## Dependencies
