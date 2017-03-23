@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var dataConverter = require('../data/chartDataConverter');
+import {dataConverter} from '../../utils/graph/chartDataConverter'
 import RadarPresentation from './graphTypes/radarPresentation'
 import PositivityIndex from './graphTypes/positivityIndex'
 import SelectGraph from './selectGraph'

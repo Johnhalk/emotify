@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ColourButton from './colourButton'
-import colourConverter from '../data/coloursConverter';
+import {coloursConverter} from '../../utils/colours/coloursConverter';
 import {togglePower} from '../../services/lifxAPI'
 
 
@@ -23,7 +23,7 @@ class ColoursContainer extends Component {
   }
 
   render = () => {
-    colourConverter(this.props.data)
+    coloursConverter(this.props.data)
 
     return (
       <div>

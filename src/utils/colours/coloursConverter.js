@@ -1,6 +1,6 @@
-import * as CONF from '../colours/coloursSchema';
-import {emotionAverager} from '../data/emotionScores'
-import {getLargestEmotion} from '../data/emotionScores'
+import * as CONF from './coloursSchema';
+import {emotionAverager} from '../emotionScores'
+import {getLargestEmotion} from '../emotionScores'
 import {updateColour} from '../../services/lifxAPI'
 
 function adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion){
@@ -10,7 +10,7 @@ function adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion){
   return colour;
 }
 
-module.exports = function(dataset, api) {
+export function coloursConverter (dataset, api) {
   var averageEmotion = emotionAverager(dataset);
   var maxEmotion = getLargestEmotion(averageEmotion);
   var colour = adjustLightnessToEmotionIntensity(maxEmotion, averageEmotion);

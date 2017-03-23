@@ -5,7 +5,6 @@ import SelectGraph from './selectGraph';
 
 
 describe('Select Graph', () => {
-
   xit ('sends graphType up as props', () => {
     const myMock = jest.fn()
     myMock.mockReturnValue('positivity')

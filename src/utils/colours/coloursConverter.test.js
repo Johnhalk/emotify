@@ -1,5 +1,5 @@
-import * as CONF from '../colours/coloursSchema';
-import ColoursConverter from './coloursConverter';
+import * as CONF from './coloursSchema';
+import {coloursConverter} from './coloursConverter';
 
 describe('ColoursConverter', () => {
   it('converts an MCS Emotion API JSON response to a color', () => {
@@ -10,7 +10,7 @@ describe('ColoursConverter', () => {
       brightness: 50,
       type: "red"
     }
-    expect(ColoursConverter(jsonData, true)).toEqual(colorExpected);
+    expect(coloursConverter(jsonData, true)).toEqual(colorExpected);
   });
 
   xit('converts happiness according to schema', () => {
@@ -23,7 +23,7 @@ describe('ColoursConverter', () => {
       let original = jsonData[0].scores[emotion]
       jsonData[0].scores[emotion] = 1
 
-      expect(ColoursConverter(jsonData)).toEqual(CONF.EMOTION[emotion]);
+      expect(coloursConverter(jsonData)).toEqual(CONF.EMOTION[emotion]);
       jsonData[0].scores[emotion] = original
     })
   });
@@ -40,7 +40,7 @@ describe('ColoursConverter', () => {
       type: "yellow"
     }
 
-    expect(ColoursConverter(data, true)).toEqual(colourExpected);
+    expect(coloursConverter(data, true)).toEqual(colourExpected);
   })
 
 });
