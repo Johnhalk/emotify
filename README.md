@@ -1,6 +1,6 @@
-# [Emotify] (https://emotify-ma.herokuapp.com/)
+# [Emotify][1]
 
-![Imgur](http://imgur.com/yDt4N0y.png)
+[![Imgur](http://imgur.com/yDt4N0y.png)][1]
 
 ### Transforming your presentations
 
@@ -97,3 +97,5 @@ Alternatively you can experience our working setup [online](https://emotify-ma.h
 ## Testing
 
 - You can run the tests through `npm test` in project root directory
+
+[1]: https://emotify-ma.herokuapp.com
