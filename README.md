@@ -81,7 +81,7 @@ So that I can improve my mood
 - Jest
 - Enzyme
 
-Deployed to [Heroku](https://emotify-ma.herokuapp.com/)  
+Deployed to [Heroku](https://emotify-ma.herokuapp.com/)   **NOTE** MCS API key has since expired on heroku version and hence wont work; suggested you download locally and follow installation and usage instructions below.
 
 ## Installation and Usage
 
